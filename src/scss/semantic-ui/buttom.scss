@@ -1,0 +1,20 @@
+//creo un componente de estilo x componente de semantic que quiero modificar
+//en este caso voy a modificar el button-este fichero se importa en el /semantic-ui/index.scss
+
+//esta es la clase que tiene este boton, se ve cuando le damos inspeccionar, asi reescribo el
+// boton de semantic, se hace una unica vez y se muestra asi donde sea que lo utilice dentro
+// de mi app
+
+.ui.button.primary {
+  background-color: $primary;
+  color: $text-primary;
+  margin: 0;
+  padding: 15.5px 30px;
+  border-radius: 6px;
+
+  &:hover,
+  &:focus,
+  &:focus {
+    background-color: $primary-hover;
+  }
+}

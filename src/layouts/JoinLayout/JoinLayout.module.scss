@@ -1,0 +1,8 @@
+@import "~/src/scss/index.scss"; //para poder tener acceso a las variables de sass
+
+.container {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
