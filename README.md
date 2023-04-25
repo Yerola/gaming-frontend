@@ -1,2 +1,2 @@
-# -Gaming-FrontEnd
+# Gaming-FrontEnd
 E-Commerce usando Next.js, React, Hooks, Strapi, Stripe, AWS, SASS, Formik, Yup y buenas practicas.
