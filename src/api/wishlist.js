@@ -1,4 +1,4 @@
-import { ENV, authFetch } from "@/utils";
+import { ENV, authFetch } from "../utils";
 
 export class Wishlist {
   async check(userId, gameId) { // para ver si el usuaio tiene el juego en su lista
