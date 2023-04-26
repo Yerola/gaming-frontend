@@ -1,6 +1,6 @@
 import { Button } from "semantic-ui-react";
 
-const inter = Inter({ subsets: ["latin"] });
+
 
 export default function Home() {
   return (
