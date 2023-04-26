@@ -1,4 +1,4 @@
-import { Token } from "@/api";
+import { Token } from "../scss/global.scss";
 
 export async function authFetch(url, params) {
   const tokenCtrl = new Token();
