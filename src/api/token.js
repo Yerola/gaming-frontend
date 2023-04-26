@@ -1,4 +1,4 @@
-import { ENV } from "@/utils";
+import { ENV } from "../utils";
 import jwtDecode from "jwt-decode";
 
 export class Token {
