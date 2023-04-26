@@ -1,4 +1,4 @@
-import { ENV } from "@/utils";
+import { ENV } from "../utils";
 
 export class Game {
   async getLastPublished() {
