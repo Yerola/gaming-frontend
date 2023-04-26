@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { Token, User } from "@/api";
+import { Token, User } from "../api";
 
 const tokenCtrl = new Token();
 const userCtrl = new User();
