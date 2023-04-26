@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { Cart } from "@/api";
+import { Cart } from "../api";
 
 const cartCtrl = new Cart();
 
