@@ -1,7 +1,7 @@
 import { ENV } from "@/utils";
 import jwtDecode from "jwt-decode";
 
-export class Token {
+export class Token { //guarda el token en el local storage
   setToken(token) {
     localStorage.setItem(ENV.TOKEN, token);
   }
