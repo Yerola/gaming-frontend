@@ -12,4 +12,4 @@ export function Seo(props) {
       <meta property="description" content={description} />
     </Head>
   );
-}
+};
