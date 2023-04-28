@@ -1,15 +1,10 @@
+//Lista de pedidos Orders
 import { useState } from "react";
 import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
-import {
-  Info,
-  Settings,
-  Address,
-  Wishlist,
-  Orders,
-} from "@/components/Account";
+import { Info, Settings, Address, Wishlist, Orders } from "@/components/Account";
 import { Separator, Seo } from "@/components/Shared";
 import styles from "./account.module.scss";
 
