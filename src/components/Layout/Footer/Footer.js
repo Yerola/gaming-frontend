@@ -36,4 +36,4 @@ export function Footer() {
       </Container>
     </div>
   );
-}
+};
