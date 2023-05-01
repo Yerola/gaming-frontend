@@ -63,7 +63,7 @@ export class Game {
 
   async searchGames(text, page) {
     try {
-      const filters = `filters[title][$contains]=${text}`;
+      const filters = `filters[title][$containsi]=${text}`;
       const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
