@@ -28,5 +28,5 @@ export function Account() {
         <Icon name="user outline" onClick={user ? goToAccount : goToLogin} />
       </Button>
     </div>
-  );
+  )
 }

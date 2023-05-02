@@ -13,5 +13,5 @@ export function CartLayout(props) {
       <Separator height={70} />
       <Footer />
     </>
-  );
+  )
 }

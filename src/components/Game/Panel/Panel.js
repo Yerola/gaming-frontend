@@ -66,5 +66,5 @@ export function Panel(props) {
         </div>
       </div>
     </Container>
-  );
+  )
 }
