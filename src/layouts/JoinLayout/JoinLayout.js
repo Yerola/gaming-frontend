@@ -10,7 +10,10 @@ export function JoinLayout({ children }) {
   const {user} = useAuth();
   const router = useRouter();
 
-  if(user) router.push("/");
+  if(user){
+    router.push("/");
+    return null; //para si estoy loggeado no me muestre el sign-in, sino la home e interrumpo 
+  } 
 
   return (
     <div className={styles.container}>
