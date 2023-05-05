@@ -11,11 +11,8 @@ const platformCtrl = new PlatformCtrl()
 export function GameForm(props) {
   const { onClose, onReload, gameId, game } = props;
   const [platforms, setPlatforms] = useState(null);
-  const [files, setFiles] = useState({
-    cover:undefined,
-    wallpaper:undefined,
-    screenshots:undefined
-  })
+  const [files, setFiles] = useState({  })
+  const [imageError, setImageError] = useState(null)
   useEffect(() => {
     (async () => {
       try {
@@ -31,8 +28,6 @@ export function GameForm(props) {
    let inputfiles= e.target.files
    let field= e.target.name
    setFiles({...files,[field]:inputfiles}) 
- 
-  //console.log(resData)
   }
 
 
@@ -48,12 +43,15 @@ export function GameForm(props) {
 
         let filesEntries = Object.entries(files)
         
-        if (gameId) {
-          //let resCover=  await gameCtrl.uploadFile(formValues.cover)
-          //await gameCtrl.update(formValues, gameId);
-          //console.log(formValues)
-          //let resData = await gameCtrl.uploadFile(files,gameId,field)
-        } else {
+        if (gameId) {//modifica un juego
+          
+          await gameCtrl.update(formValues, gameId);
+          
+        } else {//crea un juego nuevo
+          if(filesEntries.length !==3){ 
+            setImageError(true)
+             throw new Error('Debe cargar las imagenes')
+          }
             let newGame = await gameCtrl.create(formValues);
             if(newGame.data.id)filesEntries.forEach(async entrie =>await gameCtrl.uploadFile(entrie[1],newGame.data.id,entrie[0]))
         }
@@ -128,7 +126,7 @@ export function GameForm(props) {
           placeholder="Cover"
           accept="image/*"
           onChange={handeFiles}
-          //error={formik.errors.cover}
+          error={imageError}
           type="file"
         /> 
       </Form.Group>
@@ -146,9 +144,8 @@ export function GameForm(props) {
           name="wallpaper"
           label="Wallpaper"
           placeholder="wallpaper"
-          //value={formik.values.wallpaper}
           onChange={handeFiles}
-         // error={formik.errors.wallpaper}
+          error={imageError}
           type="file"
         /> 
       </Form.Group>
@@ -157,9 +154,9 @@ export function GameForm(props) {
         <Form.Input
           name="releaseDate"
           placeholder="Fecha de lanzamiento"
-          //value={formik.values.releaseDate}
+          value={formik.values.releaseDate}
           onChange={formik.handleChange}
-         // error={formik.errors.releaseDate}
+          error={formik.errors.releaseDate}
           type="date"
         />
  
@@ -167,9 +164,8 @@ export function GameForm(props) {
           name="screenshots"
           label="Screenshots"
           placeholder="screenshots"
-          //value={formik.values.screenshots}
           onChange={handeFiles}
-         // error={formik.errors.screenshots}
+          error={imageError}
           type="file"
           multiple
         /> 
