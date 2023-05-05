@@ -113,7 +113,7 @@ export class Game {
           }
         }),
       };
-      console.log(url,params)
+
       const response = await authFetch(url, params);
       const result = await response.json();
 
