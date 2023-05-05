@@ -10,9 +10,7 @@ export function initialValues(game) {
     summary: game?.summary || "",
     video: game?.video || "",
     cover: game?.cover || "",
-    wallpaper: game?.wallpaper || "",
-    screenshots: game?.screenshots || "",
-    releaseDate: game?.releaseDate || "",
+   
   };
 }
 
@@ -24,9 +22,6 @@ export function validationSchema() {
     discount: Yup.number().required(false),
     summary: Yup.string().required(true),
     video: Yup.string().url().required(true),
-    cover: Yup.mixed().required(true),
-    wallpaper: Yup.mixed().required(true),
-    screenshots: Yup.mixed().required(true),
     releaseDate: Yup.date().required(true),
   });
 }

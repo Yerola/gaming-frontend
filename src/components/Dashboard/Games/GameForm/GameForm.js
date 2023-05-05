@@ -11,7 +11,11 @@ const platformCtrl = new PlatformCtrl()
 export function GameForm(props) {
   const { onClose, onReload, gameId, game } = props;
   const [platforms, setPlatforms] = useState(null);
-
+  const [files, setFiles] = useState({
+    cover:undefined,
+    wallpaper:undefined,
+    screenshots:undefined
+  })
   useEffect(() => {
     (async () => {
       try {
@@ -23,6 +27,13 @@ export function GameForm(props) {
     })();
   }, []);
 
+  async function handeFiles(e){
+   let inputfiles= e.target.files
+   let field= e.target.name
+   setFiles({...files,[field]:inputfiles}) 
+ 
+  //console.log(resData)
+  }
 
 
 
@@ -32,17 +43,19 @@ export function GameForm(props) {
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValue) => {
-      const formValues = { ...formValue, slug: formValue.title.replace(" ", "-"), platform }
+      const formValues = { ...formValue, slug: formValue.title.replace(/ /g, "-"), platform }
       try {
+
+        let filesEntries = Object.entries(files)
+        
         if (gameId) {
-         let resCover=  await gameCtrl.uploadFile(formValues.cover)
+          //let resCover=  await gameCtrl.uploadFile(formValues.cover)
           //await gameCtrl.update(formValues, gameId);
-          console.log(formValues)
-          console.log(resCover)
-          console.log(res)
+          //console.log(formValues)
+          //let resData = await gameCtrl.uploadFile(files,gameId,field)
         } else {
-          console.log(formValues)
-          //await gameCtrl.create(formValues, platform);
+            let newGame = await gameCtrl.create(formValues);
+            if(newGame.data.id)filesEntries.forEach(async entrie =>await gameCtrl.uploadFile(entrie[1],newGame.data.id,entrie[0]))
         }
 
         formik.handleReset();
@@ -107,17 +120,17 @@ export function GameForm(props) {
           onChange={formik.handleChange}
           error={formik.errors.summary}
         />
-
-        <Form.Input
+  
+         <Form.Input
           id={"cover"}
           name="cover"
           label="Cover"
           placeholder="Cover"
-          value={formik.values.cover}
-          onChange={formik.handleChange}
-          error={formik.errors.cover}
+          accept="image/*"
+          onChange={handeFiles}
+          //error={formik.errors.cover}
           type="file"
-        />
+        /> 
       </Form.Group>
 
       <Form.Group widths="equal">
@@ -133,33 +146,33 @@ export function GameForm(props) {
           name="wallpaper"
           label="Wallpaper"
           placeholder="wallpaper"
-          value={formik.values.wallpaper}
-          onChange={formik.handleChange}
-          error={formik.errors.wallpaper}
+          //value={formik.values.wallpaper}
+          onChange={handeFiles}
+         // error={formik.errors.wallpaper}
           type="file"
-        />
+        /> 
       </Form.Group>
 
       <Form.Group widths="equal">
         <Form.Input
           name="releaseDate"
           placeholder="Fecha de lanzamiento"
-          value={formik.values.releaseDate}
+          //value={formik.values.releaseDate}
           onChange={formik.handleChange}
-          error={formik.errors.releaseDate}
+         // error={formik.errors.releaseDate}
           type="date"
         />
-
+ 
         <Form.Input
           name="screenshots"
           label="Screenshots"
           placeholder="screenshots"
-          value={formik.values.screenshots}
-          onChange={formik.handleChange}
-          error={formik.errors.screenshots}
+          //value={formik.values.screenshots}
+          onChange={handeFiles}
+         // error={formik.errors.screenshots}
           type="file"
           multiple
-        />
+        /> 
       </Form.Group>
       <Form.Button type="submit" fluid loading={formik.isSubmitting}>
         Enviar

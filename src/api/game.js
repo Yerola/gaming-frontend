@@ -34,7 +34,7 @@ export class Game {
       throw error;
     }
   }
-  async create(data, platformId) {
+  async create(data) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}`;
       const params = {
@@ -43,13 +43,19 @@ export class Game {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: {
-            ...data,
-            platform: platformId,
-          },
+          data:{
+            title:data.title,
+            price:Number(data.price),
+            discount:Number(data.discount)|| undefined,
+            slug:data.slug,
+            summary:data.summary,
+            video:data.video,
+            releaseDate:data.releaseDate,
+            platform:Number(data.platform)
+          }
         }),
       };
-
+    
       const response = await authFetch(url, params);
       const result = await response.json();
 
@@ -61,18 +67,24 @@ export class Game {
     }
   }
 
-  async uploadFile(data) {
+  async uploadFile(files,gameId, field) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.UPLOAD}`;
+      const formData = new FormData()
+      formData.append('ref','api::game.game')
+      formData.append('refId',gameId)
+      formData.append('field',field)
+      for (const file of files) {
+        formData.append("files", file);
+    }
       const params = {
         method: "POST",
-   
-        body: new FormData(data)
+        body:formData
       };
 
       const response = await authFetch(url, params);
       const result = await response.json();
-
+console.log(params)
       if (response.status !== 200) throw result;
 
       return result;
