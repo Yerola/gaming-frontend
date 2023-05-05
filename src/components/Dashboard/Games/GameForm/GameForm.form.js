@@ -18,7 +18,7 @@ export function initialValues(game) {
 export function validationSchema() {
   return Yup.object({
     title: Yup.string().required(true),
-    platform: Yup.number().required(true),
+    platform: Yup.number(),
     price: Yup.number().required(true),
     discount: Yup.number(),
     summary: Yup.string().required(true),
