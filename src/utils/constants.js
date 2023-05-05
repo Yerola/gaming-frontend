@@ -1,6 +1,6 @@
 export const ENV = {
-  SERVER_HOST: "http://localhost:1337",// el día de mañana "https://XXX.railway.app",
-  API_URL: "http://localhost:1337/api",//"https://XXX.railway.app/api",
+  SERVER_HOST: "http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
+  API_URL: "http://127.0.0.1:1337/api",//"https://XXX.railway.app/api",
   ENDPOINTS: {
     AUTH: {
       REGISTER: "auth/local/register",
@@ -14,6 +14,7 @@ export const ENV = {
     WISHLIST: "wishlists",
     PAYMENY_ORDER: "payment-order",
     ORDER: "orders",
+    UPLOAD:"upload"
   },
   TOKEN: "token",
   CART: "cart",

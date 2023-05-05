@@ -1,4 +1,4 @@
-import { ENV } from "@/utils";
+import { ENV, authFetch } from "@/utils";
 
 export class Game {
   async getLastPublished() {
@@ -18,7 +18,129 @@ export class Game {
       throw error;
     }
   }
+  async getAll() {
+    try {
 
+      const populate = "populate=platform";
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}?${populate}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async create(data) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}`;
+      const params = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            title: data.title,
+            price: Number(data.price),
+            discount: Number(data.discount) || undefined,
+            slug: data.slug,
+            summary: data.summary,
+            video: data.video,
+            releaseDate: data.releaseDate,
+            platform: Number(data.platform)
+          }
+        }),
+      };
+
+      const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async uploadFile(files, gameId, field) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.UPLOAD}`;
+      const formData = new FormData()
+      formData.append('ref', 'api::game.game')
+      formData.append('refId', gameId)
+      formData.append('field', field)
+      for (const file of files) {
+        formData.append("files", file);
+      }
+      const params = {
+        method: "POST",
+        body: formData
+      };
+
+      const response = await authFetch(url, params);
+      const result = await response.json();
+      console.log(params)
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async update(data, gameId) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}/${gameId}`;
+      const params = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data:{
+            title: data.title,
+            price: Number(data.price),
+            discount: Number(data.discount) || undefined,
+            slug: data.slug,
+            summary: data.summary,
+            video: data.video,
+            releaseDate: data.releaseDate,
+            platform: Number(data.platform)
+          }
+        }),
+      };
+      console.log(url,params)
+      const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  async delete(gameId) {
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}/${gameId}`;
+      const params = {
+        method: "DELETE",
+      };
+
+      const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
   async getLatestPublished({ limit = 9, platformId = null }) {
     try {
       const filterPlatform =
