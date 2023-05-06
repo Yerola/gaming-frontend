@@ -18,6 +18,10 @@ export default function AccountPage() {
   const router = useRouter();
   const [reload, setReload] = useState(false);
 
+  //console.log(user.email)
+  console.log(user)
+
+
   if (!user) {
     router.push("/");
     return null;
@@ -46,6 +50,16 @@ export default function AccountPage() {
     },
     {
       menuItem: "Direcciones",
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Address.AddAddress onReload={onReload} />
+          <Address.ListAddresses reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
+    /* user.role && */{
+      menuItem: "Dashboard",
       render: () => (
         <Tab.Pane attached={false}>
           <Address.AddAddress onReload={onReload} />
