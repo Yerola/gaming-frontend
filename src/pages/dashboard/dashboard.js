@@ -5,7 +5,7 @@ import { BasicLayout } from "@/layouts";
 import { useAuth } from "@/hooks";
 import {
   Games,
-/*   Settings, */
+  /*   Settings, */
 } from "@/components/Dashboard";
 import { Separator, Seo } from "@/components/Shared";
 import styles from "./dashboard.module.scss";
@@ -15,7 +15,7 @@ export default function DasboardPage() {
   const router = useRouter();
   const [reload, setReload] = useState(false);
 
-  if (!user|| !user.role) {
+  if (!user || !user.role) {
     router.push("/");
     return null;
   }
@@ -27,24 +27,26 @@ export default function DasboardPage() {
       menuItem: "Games",
       render: () => (
         <Tab.Pane attached={false}>
-          <Games.AddGame onReload={onReload} /> 
+          <Games.AddGame onReload={onReload} />
           <Games.ListGames reload={reload} onReload={onReload} />
           <Separator height={80} />
         </Tab.Pane>
       ),
     },
     {
-      menuItem: { key: 20, icon: "settings", content: "Ajustes" },
+      menuItem: { key: 20, icon: "settings", content: "Dashboard" },
       render: () => (
-        <Tab.Pane attached={false} key={99}>
-         {/*  <Settings.ChangeNameForm />
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+          <Games.ListGames reload={reload} onReload={onReload} />
+          {/*  <Settings.ChangeNameForm />
           <div className={styles.containerForms}>
             <Settings.ChangeEmailForm />
             <Settings.ChangePasswordForm />
           </div> */}
           <Separator height={80} />
         </Tab.Pane>
-      ),
+      )
     },
     {
       menuItem: {
@@ -61,7 +63,7 @@ export default function DasboardPage() {
       <Seo title="Dashboard" />
 
       <BasicLayout isContainer relative>
-      
+
 
         <Tab
           menu={{ secondary: true, pointing: true }}
@@ -72,3 +74,6 @@ export default function DasboardPage() {
     </>
   );
 }
+
+
+// linea 39 key={99}>
