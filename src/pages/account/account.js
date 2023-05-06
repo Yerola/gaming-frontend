@@ -12,6 +12,10 @@ import {
 } from "@/components/Account";
 import { Separator, Seo } from "@/components/Shared";
 import styles from "./account.module.scss";
+import {
+  Games,
+  /*   Settings, */
+} from "@/components/Dashboard";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -50,6 +54,16 @@ export default function AccountPage() {
         <Tab.Pane attached={false}>
           <Address.AddAddress onReload={onReload} />
           <Address.ListAddresses reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
+    user.role && {
+      menuItem: { key: 20, icon: "settings", content: "Dashboard" },
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+          <Games.ListGames reload={reload} onReload={onReload} />
           <Separator height={80} />
         </Tab.Pane>
       ),
