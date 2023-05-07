@@ -13,6 +13,7 @@
     "@stripe/stripe-js": "^1.52.1",
     "autoprefixer": "10.4.14",
     "classnames": "^2.3.2",
+    "dotenv": "^16.0.3",
     "formik": "^2.2.9",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
