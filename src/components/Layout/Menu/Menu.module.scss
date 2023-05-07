@@ -46,6 +46,7 @@
     margin: 0;
     font-size: 18px;
   }
+
 }
 
 .inputContainer {
@@ -56,6 +57,7 @@
   background-color: $primary;
   border-radius: 100px;
   display: none;
+  
 
   &.active {
     display: flex;
@@ -92,4 +94,43 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+  .filters{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $background-quaternary;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 100px;
+    justify-items: center;
+    justify-content: center;
+    color: $background-quaternary;
+    
+    div {
+      color: $background-quaternary;
+    }
+
+    span {
+      color: $background-quaternary;
+    }
+
+    button{
+      background-color: $primary;
+      color: $text-primary;
+    }
+
+    label{
+      color: $text-primary;
+      margin-right: 1%;
+    }
+
+  }
+
+  .filters2{
+    display: flex;
+    text-align: center;
+    align-items : center;
+    margin: 1%;
+  }
+
 }
