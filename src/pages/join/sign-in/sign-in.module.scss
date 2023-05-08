@@ -1,3 +1,27 @@
+button {
+  background-color: orange;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darken(orange, 10%);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+}
+
 .signIn {
   width: 50%;
 
@@ -7,24 +31,5 @@
 
   .actions {
     margin-top: 10px;
-  }
-}
-
-button {
-  background-color: orange;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
   }
 }
