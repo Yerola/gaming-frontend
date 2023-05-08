@@ -45,7 +45,7 @@ export default function HomePage() {
           title="Registrate y obten los mejores precios"
           subtitle="¡Compara con otros juegos y elige el tuyo!"
           btnTitle="Entrar ahora"
-          btnLink="/account"
+          btnLink="join/sign-in"
           image="/images/img01.png"
         />
 
