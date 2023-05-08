@@ -1,8 +1,11 @@
+import { SessionProvider } from "next-auth/react";
 import { AuthProvider, CartProvider } from "@/contexts";
 import "semantic-ui-css/semantic.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/scss/global.scss";
+
+
 /**
  *   // <AuthProvider>
     //  <CartProvider>
@@ -10,12 +13,13 @@ import "@/scss/global.scss";
      // </CartProvider>
    // </AuthProvider>
  */
-export default function App(props) {
-  const { Component, pageProps } = props;
-
+//export default function App({ Component, pageProps, session }) {//asi estaba
+  export default function App({  Component,  pageProps: { session, ...pageProps },}) {
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </AuthProvider>
   );
 }

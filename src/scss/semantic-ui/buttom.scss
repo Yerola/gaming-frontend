@@ -14,7 +14,21 @@
 
   &:hover,
   &:focus,
-  &:focus {
+  &:active {
     background-color: $primary-hover;
+  }
+}
+
+.ui.button.extra {
+  background-color: $providers;
+  color: $text-primary;
+  margin: 0;
+  padding: 15.5px 30px;
+  border-radius: 6px;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $providersLigth;
   }
 }
