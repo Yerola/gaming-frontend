@@ -133,17 +133,8 @@
     margin: 1%;
   }
   
- .select::-webkit-input-placeholder {
-  color: #ed4b01;
-}
-.select:-moz-placeholder {
-  color: #ed4b01;
-}
-.select::-moz-placeholder {
-  color: #ed4b01;
-}
-.select:-ms-input-placeholder {
-  color: #ed4b01;
+ .select::placeholder {
+  background-color: #ed4b01 !important;
 }
 
 }
