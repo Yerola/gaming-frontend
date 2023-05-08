@@ -3,12 +3,21 @@ import { JoinLayout } from "@/layouts";
 import { LoginForm } from "@/components/Auth";
 import { Seo } from "@/components/Shared";
 import styles from "./sign-in.module.scss";
-import { useSession,signIn } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 
 export default function SignInPage() {
-  const{data:session}=useSession()
+  const { data: session } = useSession()
 
+  const handleSignInWithGoogle = () => {
+    if (!session) {
+      // Si el usuario no ha iniciado sesión, mostrar una advertencia
+      alert("Debes registrarte primero antes de iniciar sesión con Google.");
+    } else {
+      // Si el usuario ha iniciado sesión, permitir que inicie sesión con Google
+      signIn("google");
+    }
+  };
 
   return (
     <>
@@ -17,9 +26,9 @@ export default function SignInPage() {
       <JoinLayout>
 
         <div className={styles.signIn}>
-        <button className={styles.button} onClick={()=>signIn()}>Iniciar sesión con Google</button>
+          <button className={styles.button} onClick={handleSignInWithGoogle}>Iniciar sesión con Google</button>
           <h3>Iniciar sesión</h3>
-          <LoginForm session={session}/>
+          <LoginForm session={session} />
 
           <div className={styles.actions}>
             <Link href="/join/sign-up">¿No tienes una cuenta?</Link>
