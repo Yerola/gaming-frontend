@@ -14,7 +14,7 @@ export default function SignUpPage() {
       <JoinLayout>
         <div className={styles.signIn}>
           <h3>Crear cuenta</h3>
-          <button onClick={()=>signIn()}>registrarse con google</button>
+          <button onClick={()=>signIn()}>Registrarse con Google</button>
           <RegisterForm session={session} />
 
           <div className={styles.actions}>
