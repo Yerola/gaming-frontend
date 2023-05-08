@@ -16,6 +16,10 @@ export const ENV = {
     ORDER: "orders",
     UPLOAD: "upload"
   },
+  GOOGLE_CLIENT_ID: "1034046830697 - jna82ojc6qvqvbbnsp7iu0ehi2uvqc6l.apps.googleusercontent.com",
+  GOOGLE_CLIENT_SECRET: "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",
+  NEXTAUTH_URL: "https://gaming-frontend.vercel.app",
+  JWT_SECRET: "dd44bf969e479cb4a57af866e1595a00",
   TOKEN: "token",
   CART: "cart",
   STRIPE_TOKEN: "pk_test_51N4DBsDm9hZIt5eFXhbedQQ2mPZLdVnLdMZwVPx2GSXpEkSpvGMYSjCymVRxFJkuultwEXzF7GG4TNRmq8SBZiUQ00vEKHZAu4",
