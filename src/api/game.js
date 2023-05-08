@@ -184,8 +184,11 @@ export class Game {
   }
 
   async searchGames(text, page) {
+
+    const {s,p,o,d}=text;
+
     try {
-      const filters = `filters[title][$containsi]=${text}`;
+      const filters = `filters[title][$containsi]=${s}${p?`&filters[platform][id][$eq]=${p}`:""}${d?`&filters[discount][$null]`:""}${o?`&sort=${o}`:""}`;
       const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
