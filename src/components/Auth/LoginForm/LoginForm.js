@@ -1,18 +1,41 @@
 import { Form } from "semantic-ui-react";
 import { useFormik } from "formik";
-import { useRouter } from "next/router";
+
 import { Auth } from "@/api";
 import { useAuth } from "@/hooks";
 import { initialValues, validationSchema } from "./LoginForm.form";
+import { useEffect } from "react";
+
 
 const authCtrl = new Auth();
 
-export function LoginForm() {
-  const router = useRouter();
+export function LoginForm({session}) {
+  
+
   const { login } = useAuth();
 
+useEffect(() => {
+  
+  if(session) {
+    (async () => {
+
+    try {
+      const response = await authCtrl.login({
+        identifier:session.user.name.split(' ').join(''),
+        password:session.user.email.split('').reverse().join('')+session.user.name.split(' ').join('')
+      });
+      login(response.jwt);
+    } catch (error) {
+      console.error(error);
+    }
+  })()
+}
+  
+}, [session])
+
+
   const formik = useFormik({
-    initialValues: initialValues(),
+    initialValues: initialValues(session),
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit: async (formValue) => {
@@ -26,6 +49,9 @@ export function LoginForm() {
       }
     },
   });
+
+
+
 
   return (
     <Form onSubmit={formik.handleSubmit}>

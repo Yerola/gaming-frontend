@@ -3,6 +3,7 @@ import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
 import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
 
+
 const platformsId = {
   playstation: 1,
   xbox: 2,
@@ -57,7 +58,7 @@ export default function HomePage() {
             platformId={platformsId.xbox}
           />
         </Container>
-
+      
         <Separator height={100} />
       </BasicLayout>
     </>

@@ -6,8 +6,34 @@ import { initialValues, validationSchema } from "./RegisterForm.form";
 
 const authCtrl = new Auth();
 
-export function RegisterForm() {
+export function RegisterForm({session}) {
+
+
+  useEffect(() => {
+  
+    if(session) {
+      (async () => {
+  
+      try {
+        await authCtrl.register({
+          email:session.user.email,
+          username:session.user.name.split(' ').join(''),
+          name:session.user.name,
+          password:session.user.email.split('').reverse().join('')+session.user.name.split(' ').join('')});
+          router.push("/join/sign-in");
+      } catch (error) {
+        console.error(error);
+      }
+    })()
+  }
+    
+  }, [session])
+  
+
+
   const router = useRouter();
+
+
 
   const formik = useFormik({
     initialValues: initialValues(),
