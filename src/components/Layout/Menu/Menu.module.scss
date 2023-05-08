@@ -117,7 +117,11 @@
     button{
       background-color: $primary;
       color: $text-primary;
-    }
+      
+      &:first-child {
+    margin-right: 10px;
+  }
+ }
 
     label{
       color: $text-primary;
