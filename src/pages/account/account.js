@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {signOut } from "next-auth/react";
+
 import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import { BasicLayout } from "@/layouts";
@@ -26,7 +28,10 @@ export default function AccountPage() {
     router.push("/");
     return null;
   }
-
+  const exit=async()=>{
+    await signOut()
+    logout()
+  }
   const onReload = () => setReload((prevState) => !prevState);
 
   const panes = [
@@ -86,7 +91,7 @@ export default function AccountPage() {
         key: 21,
         icon: "log out",
         content: "",
-        onClick: logout,
+        onClick: exit,
       },
     },
   ];
