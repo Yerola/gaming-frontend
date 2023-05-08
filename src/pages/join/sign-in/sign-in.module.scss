@@ -1,5 +1,5 @@
 .button {
-  background-color: orange;
+  background-color: #ff5400; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -10,16 +10,11 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: darken(orange, 10%);
+    background-color: #ffa700; 
   }
 
   &:active {
     transform: scale(0.95);
-  }
-
-  svg {
-    margin-right: 10px;
-  }
 }
 
 .signIn {
