@@ -136,5 +136,15 @@
  .select + .select {
   margin-left: 6.5px;
 }
+  
+ select__option {
+  color: orange;
+  background-color: #fff;
+}
+
+.select__option--is-selected {
+  color: #fff;
+  background-color: orange;
+}
 
 }
