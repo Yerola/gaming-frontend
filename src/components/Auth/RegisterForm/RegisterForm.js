@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import { useRouter } from "next/router";
 import { Auth } from "@/api";
 import { initialValues, validationSchema } from "./RegisterForm.form";
+import { useEffect } from "react";
 
 const authCtrl = new Auth();
 
