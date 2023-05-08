@@ -117,11 +117,7 @@
     button{
       background-color: $primary;
       color: $text-primary;
-      
-      &:first-child {
-    margin-right: 10px;
-  }
- }
+    }
 
     label{
       color: $text-primary;
@@ -138,7 +134,7 @@
   }
   
  .select + .select {
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 }
