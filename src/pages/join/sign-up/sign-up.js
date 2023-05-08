@@ -18,7 +18,7 @@ export default function SignUpPage() {
           <RegisterForm session={session} />
 
           <div className={styles.actions}>
-            <Link href="/join/sign-in">Atras</Link>
+            <Link href="/join/sign-in">Atrás</Link>
           </div>
         </div>
       </JoinLayout>
