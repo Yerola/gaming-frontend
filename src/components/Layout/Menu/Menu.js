@@ -148,9 +148,9 @@ export function Menu(props) {
 
           <div className={styles.filters}>
             <div className={styles.filters2}>
-              <Select placeholder="Plataforma:" options={options} value={platf} onChange={(_,data)=>onSearchPlatform(data.value)}/>
+              <Select className={styles.select} placeholder="Plataforma:" options={options} value={platf} onChange={(_,data)=>onSearchPlatform(data.value)}/>
 
-              <Select placeholder="Ordenar por:" options={options2} value={sort} onChange={(_,data)=>sortFunction(data.value)}/>            
+              <Select className={styles.select} placeholder="Ordenar por:" options={options2} value={sort} onChange={(_,data)=>sortFunction(data.value)}/>            
             </div>
 
             <div>
