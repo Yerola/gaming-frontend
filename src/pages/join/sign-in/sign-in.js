@@ -17,7 +17,7 @@ export default function SignInPage() {
       <JoinLayout>
 
         <div className={styles.signIn}>
-        <button className={styles.button} onClick={()=>signIn()}>Iniciar sesión con Google</button>
+        <button className={styles.button} onClick={()=>signIn()} icon="google">Iniciar sesión con Google</button>
           <h3>Iniciar sesión</h3>
           <LoginForm session={session}/>
 
