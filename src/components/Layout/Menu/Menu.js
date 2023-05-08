@@ -155,8 +155,8 @@ export function Menu(props) {
 
             <div>
               <Checkbox label='Sólo juegos con descuento' checked={discount} onChange={(_,data)=>onDiscount(data.checked)}/> 
-              <Button onClick={Filter}>Filtrar</Button>
-              <Button onClick={Clean}>Limpiar</Button>
+              <Button className={styles.select} onClick={Filter}>Filtrar</Button>
+              <Button className={styles.select} onClick={Clean}>Limpiar</Button>
             </div>
           </div>
         </div>
