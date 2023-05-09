@@ -64,7 +64,7 @@ export default function AccountPage() {
       ),
     },
     user.role && {
-      menuItem: { key: 20, icon: "settings", content: "Dashboard" },
+      menuItem: { key: 20, content: "Dashboard" },
       render: () => (
         <Tab.Pane attached={false}>
           <Games.AddGame onReload={onReload} />
