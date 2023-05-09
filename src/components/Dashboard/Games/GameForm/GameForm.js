@@ -205,18 +205,19 @@ export function GameForm(props) {
     })();
   }, []);
 
+  //<uso para capturar las imagenes y renderizarlas
   const [imageUrls, setImageUrls] = useState({
     cover: null,
     wallpaper: null,
     screenshots: []
   });
-
+//>
   async function handeFiles(e){
    let inputfiles= e.target.files;
    let field= e.target.name;
    setFiles({...files,[field]:inputfiles});
 
-   //lo que aporto
+   //<lo que aporto
      // Use the FileReader API to convert the image files to URLs
   let fileUrls = [];
   for (let i = 0; i < inputfiles.length; i++) {
@@ -231,7 +232,7 @@ export function GameForm(props) {
       }
     };
   }
-   //
+   //>
   }
 
 
