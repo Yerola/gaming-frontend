@@ -14,15 +14,17 @@ export function initialValues(game) {
    
   };
 }
-
+const msjError='El campo es requerido';
 export function validationSchema() {
   return Yup.object({
-    title: Yup.string().required(true),
+    title: Yup.string()
+      .required(msjError)
+      .matches(/^[a-zA-Z\s]+$/, 'Solo se permiten letras y espacios en blanco'),
     platform: Yup.number(),
-    price: Yup.number().required(true),
+    price: Yup.number().required(msjError),
     discount: Yup.number(),
-    summary: Yup.string().required(true),
-    video: Yup.string().url().required(true),
-    releaseDate: Yup.date().required(true),
+    summary: Yup.string().required(msjError),
+    video: Yup.string().url().required(msjError),
+    releaseDate: Yup.date().required(msjError),
   });
 }
