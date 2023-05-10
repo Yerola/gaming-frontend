@@ -5,6 +5,19 @@
   }
 
   .field {
+    label{color: #fff;}
+    textarea{
+      border: 2px solid $border-primary;
+        background-color: $background-secondary;
+        color: $text-primary;
+        padding: 14px;
+        border-radius: 6px;
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: $primary;
+        }
+    }
     .ui.input {
       input {
         border: 2px solid $border-primary;

@@ -3,6 +3,7 @@ import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
 import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
 
+
 const platformsId = {
   playstation: 1,
   xbox: 2,
@@ -44,7 +45,7 @@ export default function HomePage() {
           title="Registrate y obten los mejores precios"
           subtitle="¡Compara con otros juegos y elige el tuyo!"
           btnTitle="Entrar ahora"
-          btnLink="/account"
+          btnLink="join/sign-in"
           image="/images/img01.png"
         />
 
@@ -57,7 +58,7 @@ export default function HomePage() {
             platformId={platformsId.xbox}
           />
         </Container>
-
+      
         <Separator height={100} />
       </BasicLayout>
     </>

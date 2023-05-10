@@ -5,9 +5,14 @@ import { forEach, map } from "lodash";
 import { BasicModal } from "@/components/Shared";
 import { fn } from "@/utils";
 import styles from "./Order.module.scss";
+//<
+import { Button } from "semantic-ui-react";
+import { ReviewForm } from "./reviewForm";
+
+//>
 
 export function Order(props) {
-  const { order } = props;
+  const { order,userId } = props;
   const [showModal, setShowModal] = useState(false);
   const createdAt = new Date(order.attributes.createdAt).toISOString();
   const products = order.attributes.products;
@@ -25,6 +30,11 @@ export function Order(props) {
     return total;
   };
 
+  //<
+  const { onReload } = props;
+  const [show, setShow] = useState(false);
+  const onOpenClose = () => setShow((prevState) => !prevState);
+  //>
   return (
     <>
       <div className={styles.order} onClick={openCloseModal}>
@@ -46,6 +56,7 @@ export function Order(props) {
         title="Información del pedido"
       >
         {map(products, (product) => (
+          
           <div className={styles.product}>
             <Image src={product.attributes.cover.data.attributes.url} />
 
@@ -57,6 +68,14 @@ export function Order(props) {
                 </div>
               </div>
               <div className={styles.quantity}>
+              {/* < */}
+                <Button primary onClick={onOpenClose}>Reseñas</Button> 
+
+                <BasicModal show={show} onClose={onOpenClose} title="Reseña">
+                  
+        <ReviewForm onClose={onOpenClose} onReload={onReload}  userId={userId} gameId={13} />
+      </BasicModal>
+                {/* > */}
                 <span>x{product.quantity}</span>
                 <span>
                   {fn.calcDiscountedPrice(

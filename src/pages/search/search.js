@@ -10,7 +10,7 @@ import {
 } from "@/components/Shared";
 
 export default function SearchPage(props) {
-  const { games, pagination, searchText } = props;
+  const { games, pagination, searchText, searchText2 } = props;
   const hasResult = size(games) > 0;
 
   useEffect(() => {
@@ -21,9 +21,9 @@ export default function SearchPage(props) {
     <>
       <BasicLayout relative isOpenSearch>
         <Container>
-          <Separator height={50} />
+          <Separator height={84} />
 
-          <h2>Buscando: {searchText}</h2>
+          <h2>Buscando: {searchText} {searchText2}</h2>
           {hasResult ? (
             <>
               <GridGames games={games} />

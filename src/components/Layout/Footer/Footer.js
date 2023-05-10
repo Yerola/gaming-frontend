@@ -15,18 +15,18 @@ export function Footer() {
 
           <div>
             <ul>
-              <Link href="#">Términos y condiciones</Link>
-              <Link href="#">Política de privacidad</Link>
-              <Link href="#">Contacto</Link>
-              <Link href="#">FAQs</Link>
+              <Link href="https://www.instant-gaming.com/en/terms-of-use/" target="_blank">Términos y condiciones</Link>
+              <Link href="https://www.instant-gaming.com/en/privacy-policy/" target="_blank">Política de privacidad</Link>
+              <Link href="https://gaming-frontend.vercel.app/join/sign-in">Contacto</Link>
+              <Link href="https://www.instant-gaming.com/en/frequently-asked-questions/" target="_blank">FAQs</Link>
             </ul>
           </div>
 
           <div className={styles.social}>
-            <Button as="a" href="#" circular color="facebook" icon="facebook" />
-            <Button as="a" href="#" circular color="twitter" icon="twitter" />
-            <Button as="a" href="#" circular color="linkedin" icon="linkedin" />
-            <Button as="a" href="#" circular color="youtube" icon="youtube" />
+            <Button as="a" href="https://www.facebook.com/Instant.Gaming" target="_blank" circular color="facebook" icon="facebook" />
+            <Button as="a" href="https://twitter.com/InstantGamingES" target="_blank" circular color="twitter" icon="twitter" />
+            <Button as="a" href="https://www.twitch.tv/instantgamingen" target="_blank" circular color="purple" icon="twitch" />  
+            <Button as="a" href="https://www.youtube.com/channel/UCJ4IjxQrCVSunrWIknciNNg" target="_blank" circular color="youtube" icon="youtube" />
           </div>
         </div>
 

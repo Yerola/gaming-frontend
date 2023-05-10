@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {signOut } from "next-auth/react";
+
 import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import { BasicLayout } from "@/layouts";
@@ -12,6 +14,10 @@ import {
 } from "@/components/Account";
 import { Separator, Seo } from "@/components/Shared";
 import styles from "./account.module.scss";
+import {
+  Games,
+  /*   Settings, */
+} from "@/components/Dashboard";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -22,7 +28,10 @@ export default function AccountPage() {
     router.push("/");
     return null;
   }
-
+  const exit=async()=>{
+    await signOut()
+    logout()
+  }
   const onReload = () => setReload((prevState) => !prevState);
 
   const panes = [
@@ -54,6 +63,16 @@ export default function AccountPage() {
         </Tab.Pane>
       ),
     },
+    user.role && {
+      menuItem: { key: 20, content: "Dashboard" },
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+          <Games.ListGames reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
     {
       menuItem: { key: 20, icon: "settings", content: "Ajustes" },
       render: () => (
@@ -72,7 +91,7 @@ export default function AccountPage() {
         key: 21,
         icon: "log out",
         content: "",
-        onClick: logout,
+        onClick: exit,
       },
     },
   ];

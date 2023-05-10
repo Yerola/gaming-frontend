@@ -1,6 +1,8 @@
 export const ENV = {
-  SERVER_HOST: "http://localhost:1337",// el día de mañana "https://XXX.railway.app",
-  API_URL: "http://localhost:1337/api",//"https://XXX.railway.app/api",
+ /*  SERVER_HOST: "https://gaming-backend-forked-production.up.railway.app",//"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
+  API_URL: "https://gaming-backend-forked-production.up.railway.app/api",//"https://XXX.railway.app/api", */
+  SERVER_HOST: "http://127.0.0.1:1337",//"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
+  API_URL: "http://127.0.0.1:1337/api",//"https://XXX.railway.app/api",
   ENDPOINTS: {
     AUTH: {
       REGISTER: "auth/local/register",
@@ -14,9 +16,10 @@ export const ENV = {
     WISHLIST: "wishlists",
     PAYMENY_ORDER: "payment-order",
     ORDER: "orders",
+    UPLOAD: "upload",
+    REVIEW:"reviews"
   },
   TOKEN: "token",
   CART: "cart",
-  STRIPE_TOKEN:
-    "pk_test_51MzkCuDLxN5QCNvKdZf11Gu2hcMl1pmsS7ZipDBdSN4dhWQQv3SDnFDKvFwK46yvcov7dqMO3l63YA5NuctAT4cJ0048U0FbHt",
+  STRIPE_TOKEN: "pk_test_51N4DBsDm9hZIt5eFXhbedQQ2mPZLdVnLdMZwVPx2GSXpEkSpvGMYSjCymVRxFJkuultwEXzF7GG4TNRmq8SBZiUQ00vEKHZAu4",
 };
