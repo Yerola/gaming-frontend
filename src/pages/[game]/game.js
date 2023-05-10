@@ -4,6 +4,7 @@ import { Separator, Seo } from "@/components/Shared";
 
 export default function GamePage(props) {
   const { game } = props;
+  
   const wallpaper = game.attributes.wallpaper;
 
   return (
@@ -28,6 +29,8 @@ export default function GamePage(props) {
           screenshots={game.attributes.screenshots.data}
         />
 
+        <Separator height={50} />
+        <Game.Reviews gameId={game.id}/>
         <Separator height={50} />
       </BasicLayout>
     </>
