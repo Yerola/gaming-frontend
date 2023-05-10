@@ -14,16 +14,17 @@ export class Review {
             review,
             rating,
             user: {
-              id: userId
+              id: Number(userId)
             },
             game: {
-              id: gameId
+              id: Number(gameId)
             }
           },
         }),
       };
 
       const response = await authFetch(url, params);
+      console.log(response)
       const result = await response.json();
 
       if (response.status !== 200) throw result;
