@@ -2,33 +2,31 @@
 
 .info {
   display: flex !important;
+  flex-direction: column-reverse; 
 }
 
-.summary {
-  width: 50%;
+.content {
   padding: 20px 20px 20px 0;
-
+  border-bottom: solid #3d3d3d 2px;
+  display: flex;
+  justify-content: space-between;
   p {
     color: $text-secondary;
     line-height: 25px;
+    width: 55%;
   }
 }
 
-.more {
-  width: 50%;
-  padding: 20px 0 20px 20px;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      padding-bottom: 5px;
-
-      span {
-        color: $text-secondary;
-      }
-    }
+.content_start{
+  display: flex;
+  justify-content: start;
+  
+  .star_on{
+    font-size: 1.6rem;
+    color: rgb(255, 255, 3);
+  }
+  .star_off{
+    font-size: 1.6rem;
+    color: rgba(155, 155, 46, 0.514);
   }
 }

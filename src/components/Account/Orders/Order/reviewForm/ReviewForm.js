@@ -1,10 +1,10 @@
 import React from 'react';
 import { Form,TextArea,Radio } from "semantic-ui-react";
-import { AiOutlineStar } from 'react-icons/ai';
 import { useFormik } from "formik";
 import { initialValues,validationSchema } from './ReviewForm.Form';
-
 import { Review as ReviewCtrl} from "@/api";
+
+/* import { Icon } from "semantic-ui-react"; */
 
 const reviewCtrl = new ReviewCtrl();
 
@@ -54,13 +54,8 @@ export function ReviewForm(props) {
         <Form.Button primary type="submit" fluid loading={formik.isSubmitting}>
         Enviar
       </Form.Button>
-
         </Form>
-{/*         <AiOutlineStar/>
-        <AiOutlineStar/>
-        <AiOutlineStar/>
-        <AiOutlineStar/>
-        <AiOutlineStar/> */}
+
 
     </div>
   )
