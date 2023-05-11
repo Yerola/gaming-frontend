@@ -13,16 +13,19 @@ export function ReviewForm(props) {
   
   const {userId,gameId}=props;
 
+
   const formik=useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
     validateOnChange: false,
     onSubmit:async(formValue)=>{
       const {review,rating}=formValue;
+
       try {
-        const response=await reviewCtrl.add(userId,gameId,review,rating)
-        console.log(response)
+       const response=await reviewCtrl.add(userId,gameId,review,rating)
+       console.log(userId,gameId,review,rating)
       } catch (error) {
+        
       }
       console.log("enviado")
     }
