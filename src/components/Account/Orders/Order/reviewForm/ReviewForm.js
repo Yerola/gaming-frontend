@@ -10,9 +10,9 @@ const reviewCtrl = new ReviewCtrl();
 
 
 export function ReviewForm(props) {
-
-
+  
   const {userId,gameId}=props;
+
 
   const formik=useFormik({
     initialValues: initialValues(),
@@ -21,8 +21,7 @@ export function ReviewForm(props) {
     onSubmit:async(formValue)=>{
       const {review,rating}=formValue;
       try {
-        const response=await reviewCtrl.add(userId,gameId,review,rating)
-        console.log(response)
+       const response=await reviewCtrl.add(userId,gameId,review,rating)
       } catch (error) {
         
       }
