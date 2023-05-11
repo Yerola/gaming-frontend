@@ -32,7 +32,11 @@ export function Order(props) {
   //<
   const { onReload } = props;
   const [show, setShow] = useState(false);
-  const onOpenClose = () => setShow((prevState) => !prevState);
+  const [idGame,setIdGame]= useState(null)
+  const onOpenClose = (id=null) =>{
+    setShow((prevState) => !prevState);
+    setIdGame(id)
+  } 
   //>
   return (
     <>
@@ -67,10 +71,12 @@ export function Order(props) {
               </div>
               <div className={styles.quantity}>
               {/* < */}
-                <Button primary onClick={onOpenClose}>Reseñas</Button> 
+                <Button primary onClick={()=>onOpenClose(product.id)}>Reseñas</Button> 
 
                 <BasicModal show={show} onClose={onOpenClose} title="Reseña">
+
         <ReviewForm onClose={onOpenClose} onReload={onReload} />
+
       </BasicModal>
                 {/* > */}
                 <span>x{product.quantity}</span>
