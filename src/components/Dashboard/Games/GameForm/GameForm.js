@@ -56,7 +56,7 @@ export function GameForm(props) {
   }
 
 
-  const [platform, setPlatform] = useState("")
+  const [platform, setPlatform] = useState(game?.platform.data.id)
   const formik = useFormik({
     initialValues: initialValues(game),
     validationSchema: validationSchema(),
@@ -70,6 +70,7 @@ export function GameForm(props) {
         if (gameId) {//modifica un juego
           
           await gameCtrl.update(formValues, gameId);
+          if(filesEntries.length)filesEntries.forEach(async entrie =>await gameCtrl.uploadFile(entrie[1],gameId,entrie[0]))
           
         } else {//crea un juego nuevo
           if(filesEntries.length !==3){ 
@@ -195,6 +196,7 @@ export function GameForm(props) {
           onChange={handeFiles}
           error={imageError}
           type="file"
+          accept="image/*"
         /> 
         {imageUrls.wallpaper && <img src={imageUrls.wallpaper} alt="Wallpaper" width="250px"/>}
       </Form.Group>
@@ -208,6 +210,7 @@ export function GameForm(props) {
           onChange={handeFiles}
           error={imageError}
           type="file"
+          accept="image/*"
           multiple
         /> 
       </Form.Group>
