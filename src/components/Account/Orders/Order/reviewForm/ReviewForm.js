@@ -23,8 +23,7 @@ export function ReviewForm(props) {
         const response=await reviewCtrl.add(userId,gameId,review,rating)
         console.log(response)
       } catch (error) {
-        
-      } */
+      }
       console.log("enviado")
     }
 })
