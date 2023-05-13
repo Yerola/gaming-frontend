@@ -38,8 +38,8 @@ export function Panel(props) {
               {platform.attributes.title}
             </span>
             <span>
-              <Icon name="check" />
-              En stock
+              {game.stock === null ? <Icon name="close" color="red" /> : <Icon name="check" /> }
+              {game.stock === null ? `Sin stock` : game.stock === 1 ? `Último disponible` : `En stock: ${game.stock}`}
             </span>
           </div>
 
