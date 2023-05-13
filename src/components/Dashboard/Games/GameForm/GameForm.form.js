@@ -10,11 +10,11 @@ export function initialValues(game) {
     summary: game?.summary || "",
     video: game?.video || "",
     cover: game?.cover || "",
-    releaseDate:game?.releaseDate || "",
-   
+    releaseDate: game?.releaseDate || "",
+    stock: game?.stock || "",
   };
 }
-const msjError='El campo es requerido';
+const msjError = 'El campo es requerido';
 export function validationSchema() {
   return Yup.object({
     title: Yup.string()
@@ -23,9 +23,10 @@ export function validationSchema() {
     platform: Yup.number(),
     price: Yup.number().required(msjError),
     discount: Yup.number()
-    .max(100,"Debe ser un numero de 0 a 100"),
+      .max(100, "Debe ser un numero de 0 a 100"),
     summary: Yup.string().required(msjError),
     video: Yup.string().url().required(msjError),
     releaseDate: Yup.date().required(msjError),
+    stock: Yup.number().typeError("El stock debe ser un número").required("El stock es requerido"),
   });
 }
