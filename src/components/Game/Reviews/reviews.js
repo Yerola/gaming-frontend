@@ -1,17 +1,46 @@
-import { Container, Icon } from "semantic-ui-react";
+import { Container, Icon,Button } from "semantic-ui-react";
 import styles from "./Reviews.module.scss";
 import { useState, useEffect } from "react";
 import { map } from "lodash";
 import { Review as ReviewCtrl } from "@/api";
-
+//
+import { BasicModal, Confirm } from "@/components/Shared";
+import { useAuth } from "@/hooks";
+import { useRouter } from "next/router";
+import {signOut } from "next-auth/react";
 import "semantic-ui-css/semantic.min.css";
-
+//
 const reviewCtrl = new ReviewCtrl();
 
 export function Reviews(props) {
   const { gameId } = props;
   const [reviews, setReviews] = useState(null);
-  console.log(reviews);
+//<
+  const [showConfirm, setShowConfirm] = useState(false);
+  const openCloseConfirm = () => setShowConfirm((prevState) => !prevState );
+  const { user, logout } = useAuth();
+  const router = useRouter();
+
+  //si no iniciaste sesion te envia a home denuevo
+/*   if (!user) {
+  router.push("/");
+    return null;
+  } */
+/*   const exit= async()=>{
+    await signOut() te exije iniciar sesion
+    logout()
+  } */
+//>
+const onDelete = async () => {
+/*   try {
+    await gameCtrl.delete(gameId);
+    onReload();
+  } catch (error) {
+    console.error(error);
+  } */
+}; 
+
+/*   console.log(reviews); */
   useEffect(() => {
     (async () => {
       try {
@@ -49,7 +78,17 @@ export function Reviews(props) {
             <span>{rev.attributes.publishedAt.slice(0, 10)} </span>
             <p>{rev.attributes.user.data.attributes.username} </p>
             </div>
-
+            <div className={styles.actions}>
+          {  user&&user.role?<Button primary icon onClick={openCloseConfirm}>
+            <Icon name="delete" />
+          </Button>:null}
+            </div>
+            <Confirm
+        open={showConfirm}
+        onCancel={openCloseConfirm}
+        /* onConfirm={onDelete} */
+        content="¿Estas seguro de que quieres eliminar la reseña?"
+      />
           </div>
         </>
       ))}
