@@ -8,7 +8,7 @@ export function Basket(props) {
   const { games } = props;
   const { changeQuantityItem, deleteItem } = useCart();
 
-  const options = Array.from({ length: 50 }, (_, index) => {
+  const options = Array.from({ length: 30 }, (_, index) => {
     const number = index + 1;
     return { key: number, text: String(number), value: number };
   });

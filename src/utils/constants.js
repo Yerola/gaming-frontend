@@ -17,7 +17,8 @@ export const ENV = {
     PAYMENY_ORDER: "payment-order",
     ORDER: "orders",
     UPLOAD: "upload",
-    REVIEW:"reviews"
+    REVIEW:"reviews",
+  
   },
   TOKEN: "token",
   CART: "cart",
