@@ -9,7 +9,7 @@ const gameCtrl = new GameCtrl();
 
 
 export function Game(props) {
-  const { gameId, game, onReload} = props;
+  const { gameId, game, onReload } = props;
   const [showEdit, setShowEdit] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
@@ -23,15 +23,15 @@ export function Game(props) {
     } catch (error) {
       console.error(error);
     }
-  }; 
+  };
   return (
     <>
       <div className={styles.game}>
         <div>
           <p className={styles.title}>{game.title}: </p>
-          <p className={styles.gameInfo}> - 
+          <p className={styles.gameInfo}> -
             {game.platform.data.attributes.title} - Precio :  {game.price}
-           
+
           </p>
         </div>
 
