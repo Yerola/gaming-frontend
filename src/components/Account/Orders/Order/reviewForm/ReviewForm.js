@@ -55,7 +55,6 @@ export function ReviewForm(props) {
         >
         Enviar
       </Form.Button>
-      //para borrar
         </Form>
     </div>
   )

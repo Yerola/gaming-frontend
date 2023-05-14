@@ -7,6 +7,7 @@ import styles from "./Panel.module.scss";
 
 export function Panel(props) {
   const { gameId, game } = props;
+  console.log(game)
   const [loading, setLoading] = useState(false);
   const { addCart } = useCart();
 
@@ -58,9 +59,12 @@ export function Panel(props) {
             <span className={styles.price}>{buyPrice}€</span>
           </div>
 
-          <Button primary fluid onClick={addCartWrapper} loading={loading}>
+{         game.stock?<Button primary fluid onClick={addCartWrapper} loading={loading}>
             Comprar ahora
-          </Button>
+          </Button>:
+          <h3 className={styles.sinStock}>
+          Sin stock
+        </h3>}
 
           <WishlistIcon gameId={gameId} className={styles.heart} />
         </div>
