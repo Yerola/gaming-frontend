@@ -38,7 +38,7 @@ export function Panel(props) {
               {platform.attributes.title}
             </span>
             <span>
-              {game.stock === null ? <Icon name="close" color="red" /> : <Icon name="check" /> }
+              {game.stock === null ? <Icon name="close" color="red" /> : <Icon name="check" />}
               {game.stock === null ? `Sin stock` : game.stock === 1 ? `Último disponible` : `En stock: ${game.stock}`}
             </span>
           </div>
@@ -58,9 +58,10 @@ export function Panel(props) {
             <span className={styles.price}>{buyPrice}€</span>
           </div>
 
-          <Button primary fluid onClick={addCartWrapper} loading={loading}>
+          {game.stock ? <Button primary fluid onClick={addCartWrapper} loading={loading}>
             Comprar ahora
-          </Button>
+          </Button> :
+            <p>sin stock</p>}
 
           <WishlistIcon gameId={gameId} className={styles.heart} />
         </div>
