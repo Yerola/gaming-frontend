@@ -27,7 +27,7 @@ export function Orders() {
   return (
     <div>
       {map(orders, (order) => (
-        <Order key={order.id} order={order} />
+        <Order key={order.id} order={order} userId={user.id} />
       ))}
     </div>
   );
