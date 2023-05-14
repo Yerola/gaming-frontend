@@ -93,6 +93,7 @@ export class Game {
     }
   }
   async update(data, gameId) {
+    console.log(data)
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}/${gameId}`;
       const params = {
@@ -101,7 +102,7 @@ export class Game {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data:{
+          data: {
             title: data.title,
             price: Number(data.price),
             discount: Number(data.discount) || undefined,
@@ -109,7 +110,8 @@ export class Game {
             summary: data.summary,
             video: data.video,
             releaseDate: data.releaseDate,
-            platform: Number(data.platform)
+            platform: Number(data.platform),
+            stock: Number(data.stock),
           }
         }),
       };
@@ -185,10 +187,10 @@ export class Game {
 
   async searchGames(text, page) {
 
-    const {s,p,o,d}=text;
+    const { s, p, o, d } = text;
 
     try {
-      const filters = `filters[title][$containsi]=${s}${p?`&filters[platform][id][$eq]=${p}`:""}${d?`&filters[discount][$null]`:""}${o?`&sort=${o}`:""}`;
+      const filters = `filters[title][$containsi]=${s}${p ? `&filters[platform][id][$eq]=${p}` : ""}${d ? `&filters[discount][$null]` : ""}${o ? `&sort=${o}` : ""}`;
       const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;

@@ -39,7 +39,7 @@ export function Panel(props) {
               {platform.attributes.title}
             </span>
             <span>
-              {game.stock === null ? <Icon name="close" color="red" /> : <Icon name="check" /> }
+              {game.stock === null ? <Icon name="close" color="red" /> : <Icon name="check" />}
               {game.stock === null ? `Sin stock` : game.stock === 1 ? `Último disponible` : `En stock: ${game.stock}`}
             </span>
           </div>
@@ -65,6 +65,7 @@ export function Panel(props) {
           <h3 className={styles.sinStock}>
           Sin stock
         </h3>}
+
 
           <WishlistIcon gameId={gameId} className={styles.heart} />
         </div>
