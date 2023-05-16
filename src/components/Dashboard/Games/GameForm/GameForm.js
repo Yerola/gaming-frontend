@@ -236,7 +236,7 @@ export function GameForm(props) {
   }
 
 
-  const [platform, setPlatform] = useState("")
+  const [platform, setPlatform] = useState(game?.platform.data.id)
   const formik = useFormik({
     initialValues: initialValues(game),
     validationSchema: validationSchema(),
@@ -250,7 +250,8 @@ export function GameForm(props) {
         if (gameId) {//modifica un juego
 
           await gameCtrl.update(formValues, gameId);
-
+          if(filesEntries.length)filesEntries.forEach(async entrie =>await gameCtrl.uploadFile(entrie[1],gameId,entrie[0]))
+          
         } else {//crea un juego nuevo
           if (filesEntries.length !== 3) {
             setImageError(true)
@@ -387,8 +388,9 @@ export function GameForm(props) {
           onChange={handeFiles}
           error={imageError}
           type="file"
-        />
-        {imageUrls.wallpaper && <img src={imageUrls.wallpaper} alt="Wallpaper" width="250px" />}
+          accept="image/*"
+        /> 
+        {imageUrls.wallpaper && <img src={imageUrls.wallpaper} alt="Wallpaper" width="250px"/>}
       </Form.Group>
       <br />
       <Form.Group widths="equal">
@@ -400,18 +402,19 @@ export function GameForm(props) {
           onChange={handeFiles}
           error={imageError}
           type="file"
+          accept="image/*"
           multiple
         />
       </Form.Group>
 
       {imageUrls.screenshots && (
-        <div style={{ display: "flex", justifyContent: "space-around", flexWrap: "wrap" }}>
-          {console.log(imageUrls.screenshots)}
-          {Object.values(imageUrls.screenshots).map((file, index) => (
-            <img key={index} src={file} alt={`screenshot-${index}`} style={{ objectFit: "contain", width: "250px", margin: "10px" }} />
-          ))}
-        </div>
-      )}
+    <div style={{display:"flex",justifyContent:"space-around",flexWrap:"wrap"}}>
+      {console.log(imageUrls.screenshots)}
+      {Object.values(imageUrls.screenshots).map((file, index) => (
+        <img key={index} src={file} alt={`screenshot-${index}`} style={{objectFit:"contain",width:"250px",margin:"10px"}} />
+      ))}
+    </div>
+  )}
       <Form.Button type="submit" fluid loading={formik.isSubmitting}>
         Enviar
       </Form.Button>

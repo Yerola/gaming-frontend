@@ -3,11 +3,9 @@ import styles from "./Reviews.module.scss";
 import { useState, useEffect } from "react";
 import { map } from "lodash";
 import { Review as ReviewCtrl } from "@/api";
-import { BasicModal, Confirm } from "@/components/Shared";
+import { Confirm } from "@/components/Shared";
 import { useAuth } from "@/hooks";
-import { useRouter } from "next/router";
-import {signOut } from "next-auth/react";
-import "semantic-ui-css/semantic.min.css";
+
 const reviewCtrl = new ReviewCtrl();
 
 export function Reviews(props) {
@@ -15,8 +13,8 @@ export function Reviews(props) {
   const [reviews, setReviews] = useState(null);
   const [showConfirm, setShowConfirm] = useState(false);
   const openCloseConfirm = () =>setShowConfirm((prevState) => !prevState );
-  const { user, logout } = useAuth();
-  const router = useRouter();
+  const { user } = useAuth();
+
   const onDelete = async (id) => {
   await reviewCtrl.delete(id)
   location.reload();
