@@ -58,10 +58,12 @@ export function Panel(props) {
             <span className={styles.price}>{buyPrice}€</span>
           </div>
 
-          {game.stock ? <Button primary fluid onClick={addCartWrapper} loading={loading}>
+          {game.stock?<Button primary fluid onClick={addCartWrapper} loading={loading}>
             Comprar ahora
-          </Button> :
-            <p>sin stock</p>}
+          </Button>:
+          <h3 className={styles.sinStock}>
+            Sin stock
+          </h3>}
 
           <WishlistIcon gameId={gameId} className={styles.heart} />
         </div>
