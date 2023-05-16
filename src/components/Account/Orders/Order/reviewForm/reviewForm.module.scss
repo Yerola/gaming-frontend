@@ -1,0 +1,29 @@
+.content_star{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+}
+.content_stars{
+    width: 5rem;
+    height: 5rem;
+}
+.star_on{
+    width: 50px;
+    color: rgb(226, 226, 3);
+    cursor: pointer;
+    &:hover,
+    &:active,
+    &:focus{
+        color: rgb(226, 226, 3);
+    }
+}
+.star_off{
+    font-size: 50px;
+    height: 20px;
+    width: 50px;
+    cursor: pointer;
+    &:hover{
+        color: rgb(226, 226, 3);
+    }
+}

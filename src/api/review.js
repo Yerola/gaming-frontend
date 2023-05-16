@@ -24,7 +24,6 @@ export class Review {
       };
 
       const response = await authFetch(url, params);
-      console.log(response)
       const result = await response.json();
 
       if (response.status !== 200) throw result;
