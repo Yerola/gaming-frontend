@@ -3,44 +3,25 @@ import styles from "./Reviews.module.scss";
 import { useState, useEffect } from "react";
 import { map } from "lodash";
 import { Review as ReviewCtrl } from "@/api";
-//
 import { BasicModal, Confirm } from "@/components/Shared";
 import { useAuth } from "@/hooks";
 import { useRouter } from "next/router";
 import {signOut } from "next-auth/react";
 import "semantic-ui-css/semantic.min.css";
-//
 const reviewCtrl = new ReviewCtrl();
 
 export function Reviews(props) {
   const { gameId } = props;
   const [reviews, setReviews] = useState(null);
-//<
   const [showConfirm, setShowConfirm] = useState(false);
-  const openCloseConfirm = () => setShowConfirm((prevState) => !prevState );
+  const openCloseConfirm = () =>setShowConfirm((prevState) => !prevState );
   const { user, logout } = useAuth();
   const router = useRouter();
-
-  //si no iniciaste sesion te envia a home denuevo
-/*   if (!user) {
-  router.push("/");
-    return null;
-  } */
-/*   const exit= async()=>{
-    await signOut() te exije iniciar sesion
-    logout()
-  } */
-//>
-const onDelete = async () => {
-/*   try {
-    await gameCtrl.delete(gameId);
-    onReload();
-  } catch (error) {
-    console.error(error);
-  } */
-}; 
-
-/*   console.log(reviews); */
+  const onDelete = async (id) => {
+  await reviewCtrl.delete(id)
+  location.reload();
+  }
+  
   useEffect(() => {
     (async () => {
       try {
@@ -86,7 +67,7 @@ const onDelete = async () => {
             <Confirm
         open={showConfirm}
         onCancel={openCloseConfirm}
-        /* onConfirm={onDelete} */
+        onConfirm={()=>onDelete(rev.id)}
         content="¿Estas seguro de que quieres eliminar la reseña?"
       />
           </div>
