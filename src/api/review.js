@@ -35,7 +35,7 @@ export class Review {
     }
   }
 
-  async delete(reviewId) {
+ async delete(id) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.REVIEW}/${id}`;
       const params = {
