@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      game: response,
+      game: response || 404,
     },
   };
 }
