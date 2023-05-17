@@ -1,0 +1,22 @@
+.link-wrapper {
+          @extend .link-style;
+        }
+
+        .link-style {
+          display: inline-block;
+          background-color: #f5f5f5;
+          padding: 8px 16px;
+          border-radius: 4px;
+          text-decoration: none;
+          color: #000;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #e0e0e0;
+          }
+
+          a {
+            text-decoration: none;
+            color: #000;
+          }
+        }
