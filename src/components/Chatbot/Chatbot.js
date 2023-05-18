@@ -3,6 +3,7 @@ import  { ThemeProvider } from 'styled-components';
 import { useRouter } from "next/router"; 
 import styles from "./Chatbot.module.scss";
 
+
 export function ChatbotGaming() {
 
 const router = useRouter();
