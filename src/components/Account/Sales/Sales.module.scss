@@ -1,0 +1,26 @@
+.encabezado{    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total{
+    float: right;
+}
+
+.total p{
+    font-size:x-large;
+}
+
+.filtro{
+    width: 50px;
+}
+
+.filtro div{
+    color: black;
+}
+
+.filtro div div span{
+    color: black;
+}
