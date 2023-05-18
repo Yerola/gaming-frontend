@@ -1,0 +1,39 @@
+@import "~/src/scss/index.scss";
+.game {
+  background-color: $background-quaternary;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent;
+
+  &:hover {
+    cursor: pointer;
+    border-color: $primary;
+  }
+
+ /** > div {
+    display: flex;
+    row-gap: 10px;
+  }*/
+}
+
+.title {
+  margin-right: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.gameInfo {
+  color: $text-secondary;
+  font-size: 16px;
+}
+
+.actions {
+  > button {
+    padding: 12px !important;
+    margin-left: 10px !important;
+  }
+}
