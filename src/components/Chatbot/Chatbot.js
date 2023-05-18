@@ -1,11 +1,11 @@
 import ChatBot from 'react-simple-chatbot';
 import  { ThemeProvider } from 'styled-components'; 
-//import { useRouter } from "next/router"; 
-//import styles from "./Chatbot.module.scss";
+import { useRouter } from "next/router"; 
+import styles from "./Chatbot.module.scss";
 
 export function ChatbotGaming() {
 
-//const router = useRouter();
+const router = useRouter();
 
 const steps = [
   {
@@ -24,15 +24,13 @@ const steps = [
   },
   {
     id: '3',
-    message: 'Los juegos que tenemos disponibles se muestran en la página de inicio. Si estás en otra página, haz click sobre el logo de Gaming en la esquina superior izquierda y serás redirigido/a a la página de inicio. Espero haberte sido de ayuda :)', // To delete
-    // trigger:  () => window.location.href='https://urlquecorresponda.com/allgames'
-    trigger: '7'
+    message: 'Claro. Aguarda unos instantes, te redirigiremos.',
+    trigger: () => router.push('http://localhost:3000'),
   },
   {
     id: '4',
-    message: 'Para ver los juegos con descuentos, haz click sobre la lupa en la parte superior de la página de inicio. Una vez desplegadas las opciones, selecciona la opción "Sólo juegos con descuentos" y has click en "Filtrar". Espero haberte sido de ayuda :)', // To delete
-    //trigger: () => router.push('http://localhost:3000/search?s=&d=true'),
-    trigger: '7'
+    message: 'Claro. Aguarda unos instantes, te redirigiremos.',
+    trigger: () => router.push('http://localhost:3000/search?s=&d=true'),
   },
   {
     id: '5',
@@ -80,7 +78,7 @@ const theme = {
 
 
     return (
-      <div>
+      <div className= {styles.custombubble}>
         <ThemeProvider theme={theme}>
             <ChatBot
             headerTitle="Asistente Virtual"
@@ -92,6 +90,3 @@ const theme = {
 
     );
   }
-
-
-//export VideojuegosChatBotPrueba;
