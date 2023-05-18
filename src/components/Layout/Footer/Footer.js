@@ -12,7 +12,7 @@ export function Footer() {
               <Image src="/images/logo.png" alt="Gaming" />
             </Link>
           </div>
-//eliminar esta linea
+//eliminar esta linea2
           <div  className={styles.politicas}>
             <ul>
               <Link href="https://www.instant-gaming.com/en/terms-of-use/" target="_blank">Términos y condiciones</Link>
