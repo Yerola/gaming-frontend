@@ -73,8 +73,8 @@ export default function AccountPage() {
         </Tab.Pane>
       ),
     },
-      // user.role && {
-        {
+      user.role && {
+      
           menuItem: "Usuarios",
           render: () => (
             <Tab.Pane attached={false}>
