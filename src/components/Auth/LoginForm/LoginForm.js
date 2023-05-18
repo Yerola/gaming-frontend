@@ -4,11 +4,16 @@ import { Auth } from "@/api";
 import { useAuth } from "@/hooks";
 import { initialValues, validationSchema } from "./LoginForm.form";
 import { useEffect } from "react";
+import Error from "@/components/Error/Error";
+import { useState } from "react";
 
 const authCtrl = new Auth();
 
 export function LoginForm({ session }) {
   const { login } = useAuth();
+
+  const [error, setError] = useState();
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     if (session) {
@@ -45,11 +50,22 @@ export function LoginForm({ session }) {
           } catch (error) {
             console.log("estoy en el catch");
             console.error(error);
+
+            <Error mensaje={error.error.message} />;
           }
         }
       })();
     }
   }, [session]);
+
+  useEffect(() => {
+    const isVisible = setTimeout(() => {
+      setVisible(false);
+    }, 5000);
+
+    return () => clearTimeout(isVisible);
+    //setVisible(true);
+  }, [visible, error]);
 
   const formik = useFormik({
     initialValues: initialValues(session),
@@ -68,6 +84,8 @@ export function LoginForm({ session }) {
   });
 
   return (
+    <>
+   
     <Form onSubmit={formik.handleSubmit}>
       <Form.Input
         name="identifier"
@@ -90,5 +108,12 @@ export function LoginForm({ session }) {
         Entrar
       </Form.Button>
     </Form>
+    {error && visible && <Error msj={error} />}
+    </>   
+
   );
 }
+
+
+
+

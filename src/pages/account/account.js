@@ -11,6 +11,7 @@ import {
   Address,
   Wishlist,
   Orders,
+  Sales
 } from "@/components/Account";
 import { Separator, Seo } from "@/components/Shared";
 import styles from "./account.module.scss";
@@ -18,6 +19,7 @@ import {
   Games,
   /*   Settings, */
 } from "@/components/Dashboard";
+import { render } from "react-dom";
 
 export default function AccountPage() {
   const { user, logout } = useAuth();
@@ -34,7 +36,39 @@ export default function AccountPage() {
   }
   const onReload = () => setReload((prevState) => !prevState);
 
-  const panes = [
+  let panes = user.role?[
+    user.role && {
+      menuItem: "Ventas",
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Sales/>
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
+    user.role && { 
+      menuItem: "Usuarios",
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+
+          <ListUsers reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
+    user.role && {
+      menuItem: { key: 20, content: "Dashboard" },
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+          <Games.ListGames reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
+  ]:
+  [
     {
       menuItem: "Mis pedidos",
       render: () => (
@@ -63,18 +97,11 @@ export default function AccountPage() {
         </Tab.Pane>
       ),
     },
-    user.role && {
-      menuItem: { key: 20, content: "Dashboard" },
-      render: () => (
-        <Tab.Pane attached={false}>
-          <Games.AddGame onReload={onReload} />
-          <Games.ListGames reload={reload} onReload={onReload} />
-          <Separator height={80} />
-        </Tab.Pane>
-      ),
-    },
+  ];
+
+  panes =[...panes,
     {
-      menuItem: { key: 20, icon: "settings", content: "Ajustes" },
+      menuItem: { key: 21, icon: "settings", content: "Ajustes" },
       render: () => (
         <Tab.Pane attached={false} key={99}>
           <Settings.ChangeNameForm />
@@ -88,13 +115,12 @@ export default function AccountPage() {
     },
     {
       menuItem: {
-        key: 21,
+        key: 22,
         icon: "log out",
         content: "",
         onClick: exit,
       },
-    },
-  ];
+    }]
 
   return (
     <>
