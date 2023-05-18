@@ -102,7 +102,7 @@ export function ReviewForm(props) {
   const ratingOptions = [1, 2, 3, 4, 5];
   const handleRatingChange = (rating) => {
     setSelectedRating(rating);
-    formik.setFieldValue("rating", rating.toString()); // Actualizar el rating en el formik
+    formik.setFieldValue("rating", rating.toString());
   };
 //
   return (
@@ -117,7 +117,10 @@ export function ReviewForm(props) {
           onChange={formik.handleChange}
           error={formik.errors.review}
         />
-        <label>Rating</label>
+        <div style={{width:"100%",textAlign:"center"}}>
+        <h4>Rating</h4>
+        </div>
+        <br/>
         <Form.Group inline
         error={formik.errors.rating}
         className={styles.content_star}
@@ -135,7 +138,8 @@ export function ReviewForm(props) {
             </Form.Field>
           ))}
         </Form.Group>
-        {formik.errors.rating && <div style={{ color: "red" }}>{formik.errors.rating}</div>}
+        {formik.errors.rating && <div style={{ color: "rgb(216, 94, 94)",background:"white",textAlign:"center",borderRadius:"8px",padding:"5px" }}>{formik.errors.rating}</div>}
+        <br/>
         <Form.Button
           primary
           type="submit"
