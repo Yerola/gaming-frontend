@@ -7,13 +7,13 @@ export function Footer() {
     <div className={styles.footer}>
       <Container>
         <div className={styles.columns}>
-          <div>
+          <div className={styles.img_logo}>
             <Link href="/">
               <Image src="/images/logo.png" alt="Gaming" />
             </Link>
           </div>
 
-          <div>
+          <div  className={styles.politicas}>
             <ul>
               <Link href="https://www.instant-gaming.com/en/terms-of-use/" target="_blank">Términos y condiciones</Link>
               <Link href="https://www.instant-gaming.com/en/privacy-policy/" target="_blank">Política de privacidad</Link>

@@ -45,3 +45,44 @@
     color: $text-secondary;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .footer {
+    width: 105%;
+    padding: 3rem 0;
+  }
+  .columns{
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    .img_logo{
+      width: 50%;
+      margin: 0 2px;
+      img{
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .social {
+      display: flex;
+      justify-content: center !important;
+      align-items: none;
+      width: 100%;
+      margin-top: 1.2rem;
+      > a {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid $border-primary;
+  
+    > span {
+      color: $text-secondary;
+    }
+  }
+}
