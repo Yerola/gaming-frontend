@@ -90,4 +90,4 @@ const theme = {
       </div>
 
     );
-  }
+  };
