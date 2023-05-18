@@ -46,6 +46,17 @@ export default function AccountPage() {
         </Tab.Pane>
       ),
     },
+    user.role && { 
+      menuItem: "Usuarios",
+      render: () => (
+        <Tab.Pane attached={false}>
+          <Games.AddGame onReload={onReload} />
+
+          <ListUsers reload={reload} onReload={onReload} />
+          <Separator height={80} />
+        </Tab.Pane>
+      ),
+    },
     user.role && {
       menuItem: { key: 20, content: "Dashboard" },
       render: () => (
