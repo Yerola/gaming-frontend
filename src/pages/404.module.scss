@@ -1,4 +1,12 @@
 .not-found-page {
+  img{
+      position: 'absolute';
+      top: '23.5%';
+      left: '50%';
+      transform: 'translate(-50%, -50%)';
+      width: '500px';
+      height: '90px'
+  }
   background-color: #272727;
   display: flex;
   flex-direction: column;
@@ -50,4 +58,13 @@ button.backButton:hover {
 
 .p {
   font-size: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .not-found-page{
+   img{
+    width: 450px;
+    margin-bottom: 3rem;
+   }
+  }
 }
