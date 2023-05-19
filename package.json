@@ -31,6 +31,7 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^5.3.3",
     "tailwindcss": "3.3.1",
     "yup": "^1.1.1"
   }
