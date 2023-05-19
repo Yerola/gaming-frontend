@@ -38,7 +38,7 @@ export function UserForm(props) {
         <Form.Input name="address" value={`Blocked: ${blocked}`} />
       </Form.Group>
 
-      <Form.Button type="submit" fluid>
+      <Form.Button type="submit" fluid onClick={onClose}>
         Ok
       </Form.Button>
     </Form>
