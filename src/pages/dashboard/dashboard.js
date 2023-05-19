@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
 import { BasicLayout } from "@/layouts";
+import { ChatbotGaming } from '@/components/Chatbot';   
 import { useAuth } from "@/hooks";
 import {
   Games,
@@ -70,6 +71,8 @@ export default function DasboardPage() {
           panes={panes}
           className={styles.tabs}
         />
+
+        <ChatbotGaming />
       </BasicLayout>
     </>
   );

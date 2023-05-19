@@ -5,6 +5,7 @@ import { CartLayout } from "@/layouts";
 import { useCart } from "@/hooks";
 import { Cart } from "@/components/Cart";
 import { Seo } from "@/components/Shared";
+import { ChatbotGaming } from '@/components/Chatbot';
 
 const gameCtrl = new Game();
 
@@ -40,6 +41,8 @@ export default function CartPage() {
         {currentStep === 2 && <Cart.StepTwo games={games} />}
         {currentStep === 3 && <Cart.StepThree />}
       </CartLayout>
+
+      <ChatbotGaming />
     </>
   );
 }

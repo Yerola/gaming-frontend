@@ -2,6 +2,7 @@ import { Container } from "semantic-ui-react";
 import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
 import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
+import { ChatbotGaming } from '@/components/Chatbot';
 
 
 const platformsId = {
@@ -60,6 +61,8 @@ export default function HomePage() {
         </Container>
       
         <Separator height={100} />
+
+        <ChatbotGaming />
       </BasicLayout>
     </>
   );
