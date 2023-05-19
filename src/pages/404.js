@@ -10,14 +10,6 @@ const NotFoundPage = () => {
       <img
         src="https://gaming-frontend.vercel.app/images/logo.png"
         alt="GAMING"
-        style={{
-          position: 'absolute',
-          top: '23.5%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: '500px',
-          height: '90px'
-        }}
       />
       <h1>Oops! Página no encontrada</h1>
       <hr className={styles.hr} />
@@ -28,6 +20,7 @@ const NotFoundPage = () => {
           <a>Volver a la página de inicio</a>
         </div>
       </Link>
+      <br/>
       <button className={styles.backButton} onClick={() => router.back()}>Volver a la página anterior</button>
     </div>
   );

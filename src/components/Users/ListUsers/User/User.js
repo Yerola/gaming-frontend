@@ -12,17 +12,24 @@ export function User(props) {
   const [showEdit, setShowEdit] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const usersCtrl = new Users();
 
   const openCloseEdit = () => setShowEdit((prevState) => !prevState);
-  const openCloseConfirm = () => setShowConfirm((prevState) => !prevState);
 
+  const openCloseConfirm = () => setShowConfirm((prevState) => !prevState);
+  console.log(showEdit)
   const updateUserState = async () => {
     try {
+      setIsLoading(true);
       await usersCtrl.updateState(id, !blocked);
       onReload();
+      openCloseConfirm();
     } catch (error) {
       console.error(error);
+    } finally{
+      setIsLoading(false)
     }
   };
 
@@ -58,6 +65,11 @@ export function User(props) {
         open={showConfirm}
         onCancel={openCloseConfirm}
         onConfirm={updateUserState}
+        confirmButton={
+          <Button primary loading={isLoading}>
+            Confirmar
+          </Button>
+        }
         content={
           blocked
             ? "¿Estás seguro que deseas activar el usuario?"
@@ -80,8 +92,9 @@ export function User(props) {
           blocked={blocked}
           createdAt={createdAt}
           updatedAt={updatedAt}
-          onReload={onReload}/>
-
+          onReload={onReload}
+          onClose={openCloseEdit}
+          />
       </BasicModal>
     </>
   );
