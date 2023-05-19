@@ -34,6 +34,7 @@ export class Game {
       throw error;
     }
   }
+
   async create(data) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}`;
@@ -126,6 +127,59 @@ export class Game {
       throw error;
     }
   }
+
+  async getAllPreview() {
+    try {
+
+      const populate = "populate=platform&publicationState=preview&sort=title";
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}?${populate}`;
+
+      const response = await fetch(url);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async publish(data, gameId) {
+    
+    let publishedAt = new Date();
+
+    if(data){
+      publishedAt = publishedAt.toISOString();
+    }else{
+      publishedAt = null;
+    }
+
+    try {
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}/${gameId}`;
+      const params = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            publishedAt,
+          }
+        }),
+      };
+
+      const response = await authFetch(url, params);
+      const result = await response.json();
+
+      if (response.status !== 200) throw result;
+
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+ 
   async delete(gameId) {
     try {
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}/${gameId}`;
