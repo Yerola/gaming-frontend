@@ -17,7 +17,7 @@ export function ListGames(props) {
   useEffect(() => {
     (async () => {
       try {
-        const response = await gameCtrl.getAll();
+        const response = await gameCtrl.getAllPreview();
         setGames(response.data);
       } catch (error) {
         console.error(error);
