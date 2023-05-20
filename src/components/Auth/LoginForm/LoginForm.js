@@ -6,6 +6,7 @@ import { initialValues, validationSchema } from "./LoginForm.form";
 import { useEffect } from "react";
 import Error from "@/components/Error/Error";
 import { useState } from "react";
+import { translateError } from "@/utils/translateError";
 
 const authCtrl = new Auth();
 
@@ -35,23 +36,19 @@ export function LoginForm({ session }) {
         };
 
         try {
-         
           const response = await authCtrl.login(dataLogin);
           console.log(response);
           login(response.jwt);
           router.push("/");
-        } catch (error) {
-          
+        } catch (err) {
           try {
             const res = await authCtrl.register(data);
             const response = await authCtrl.login(dataLogin);
             login(response.jwt);
             router.push("/");
-          } catch (error) {
-            console.log("estoy en el catch");
-            console.error(error);
-
-            <Error mensaje={error.error.message} />;
+          } catch (err) {
+            setVisible(true);
+            setError(translateError(err.error.message));
           }
         }
       })();
@@ -61,10 +58,9 @@ export function LoginForm({ session }) {
   useEffect(() => {
     const isVisible = setTimeout(() => {
       setVisible(false);
-    }, 5000);
+    }, 5000); //cuando pasan 5 seg visible pasa a false y no se ve mas el error
 
     return () => clearTimeout(isVisible);
-    //setVisible(true);
   }, [visible, error]);
 
   const formik = useFormik({
@@ -77,43 +73,38 @@ export function LoginForm({ session }) {
         login(response.jwt);
 
         // router.push("/");
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        setVisible(true);
+        setError(translateError(err.error.message));
       }
     },
   });
 
   return (
     <>
-   
-    <Form onSubmit={formik.handleSubmit}>
-      <Form.Input
-        name="identifier"
-        type="text"
-        placeholder="Correo electronico o nombre de usuario"
-        value={formik.values.identifier}
-        onChange={formik.handleChange}
-        error={formik.errors.identifier}
-      />
-      <Form.Input
-        name="password"
-        type="password"
-        placeholder="Contraseña"
-        value={formik.values.password}
-        onChange={formik.handleChange}
-        error={formik.errors.password}
-      />
+      <Form onSubmit={formik.handleSubmit}>
+        <Form.Input
+          name="identifier"
+          type="text"
+          placeholder="Correo electronico o nombre de usuario"
+          value={formik.values.identifier}
+          onChange={formik.handleChange}
+          error={formik.errors.identifier}
+        />
+        <Form.Input
+          name="password"
+          type="password"
+          placeholder="Contraseña"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          error={formik.errors.password}
+        />
 
-      <Form.Button type="submit" fluid loading={formik.isSubmitting}>
-        Entrar
-      </Form.Button>
-    </Form>
-    {error && visible && <Error msj={error} />}
-    </>   
-
+        <Form.Button type="submit" fluid loading={formik.isSubmitting}>
+          Entrar
+        </Form.Button>
+      </Form>
+      {error && visible && <Error msj={error} />}
+    </>
   );
 }
-
-
-
-
