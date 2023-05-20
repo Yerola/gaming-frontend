@@ -1,5 +1,6 @@
 import { Container } from "semantic-ui-react";
 import { size } from "lodash";
+import { ChatbotGaming } from '@/components/Chatbot';
 import { BasicLayout } from "@/layouts";
 import {
   GridGames,
@@ -40,6 +41,7 @@ export default function PlatformPage(props) {
 
           <Separator height={100} />
         </Container>
+        <ChatbotGaming />
       </BasicLayout>
     </>
   );

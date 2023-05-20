@@ -1,8 +1,8 @@
 export const ENV = {
- // SERVER_HOST: "https://gaming-backend-forked-production.up.railway.app",//"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
- // API_URL: "https://gaming-backend-forked-production.up.railway.app/api",//"https://XXX.railway.app/api",
-   SERVER_HOST: "http://127.0.0.1:1337", ///"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
-  API_URL: "http://127.0.0.1:1337/api" ,///"https://XXX.railway.app/api",
+  SERVER_HOST: "https://gaming-backend-forked-production.up.railway.app",//"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
+  API_URL: "https://gaming-backend-forked-production.up.railway.app/api",//"https://XXX.railway.app/api",
+   //SERVER_HOST: "http://127.0.0.1:1337", ///"http://127.0.0.1:1337",// el día de mañana "https://XXX.railway.app",
+  //API_URL: "http://127.0.0.1:1337/api" ,///"https://XXX.railway.app/api",
   ENDPOINTS: {
     AUTH: {
       REGISTER: "auth/local/register",

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Container } from "semantic-ui-react";
-import { size } from "lodash";
+import { size } from "lodash";  
 import { BasicLayout } from "@/layouts";
 import {
   GridGames,
@@ -16,16 +16,16 @@ export default function SearchPage(props) {
   useEffect(() => {
     document.getElementById("search-games").focus();
   }, []);
-
+console.log(props);
   return (
     <>
       <BasicLayout relative isOpenSearch>
         <Container>
           <Separator height={84} />
 
-          <h2>Buscando: {searchText} {searchText2}</h2>
           {hasResult ? (
             <>
+            <h2>Buscando: {searchText} {searchText2}</h2>
               <GridGames games={games} />
               <Separator height={30} />
               <Pagination

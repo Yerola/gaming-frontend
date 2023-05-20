@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Icon } from "semantic-ui-react";
+import { Button, Icon, Checkbox } from "semantic-ui-react";
 import { Game as GameCtrl } from "@/api";
 import { BasicModal, Confirm } from "@/components/Shared";
 import { GameForm } from "../../GameForm";
@@ -14,11 +14,10 @@ export function Game(props) {
   const [showConfirm, setShowConfirm] = useState(false);
 
   const openCloseEdit = () => setShowEdit((prevState) => !prevState);
-  const openCloseConfirm = () => setShowConfirm((prevState) => !prevState);
 
-  const onDelete = async () => {
+  const onPublish = async (data) => {
     try {
-      await gameCtrl.delete(gameId);
+      await gameCtrl.publish(data.checked,gameId);
       onReload();
     } catch (error) {
       console.error(error);
@@ -39,18 +38,12 @@ export function Game(props) {
           <Button primary icon onClick={openCloseEdit}>
             <Icon name="pencil" />
           </Button>
-          <Button primary icon onClick={openCloseConfirm}>
-            <Icon name="delete" />
-          </Button>
+          <div className={styles.published}>
+            <span>Publicado</span>
+            <Checkbox toggle defaultChecked={!!game.publishedAt} onClick={(_,data)=>onPublish(data)}/>
+          </div>
         </div>
       </div>
-
-      <Confirm
-        open={showConfirm}
-        onCancel={openCloseConfirm}
-        onConfirm={onDelete}
-        content="¿Estas seguro de que quieres eliminar el juego?"
-      />
 
       <BasicModal
         show={showEdit}

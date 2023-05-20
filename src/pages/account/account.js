@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {signOut } from "next-auth/react";
+import { ChatbotGaming } from '@/components/Chatbot';
 import { ListUsers } from "@/components/Users";
 import { Tab } from "semantic-ui-react";
 import { useRouter } from "next/router";
@@ -134,6 +135,8 @@ export default function AccountPage() {
           panes={panes}
           className={styles.tabs}
         />
+
+        <ChatbotGaming />
       </BasicLayout>
     </>
   );

@@ -1,3 +1,3 @@
-export * from "./constants";
-export * from "./authFetch";
+export * from "./constants.js";
+export * from "./authFetch.js";
 export * from "./functions";
