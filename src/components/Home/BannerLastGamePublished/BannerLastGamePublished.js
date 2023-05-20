@@ -37,7 +37,7 @@ export function BannerLastGamePublished() {
       <Image src={wallpaper.data.attributes.url} className={styles.wallpaper} />
 
       <Link className={styles.infoContainer} href={game.attributes.slug}>
-        <Container>
+        <Container className={styles.infoContainer_content}>
           <span className={styles.date}>
             {DateTime.fromISO(releaseDate).minus({ days: 1 }).toRelative()}
           </span>
