@@ -3,24 +3,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #ff5400 !important;
+    font-weight: bold;
 }
 
 .total{
     float: right;
+    color: #ff5400 !important;
+    font-weight: bold;
 }
 
 .total p{
     font-size:x-large;
+    color: #ff5400 !important;
+    font-weight: bold;
 }
 
 .filtro{
     width: 50px;
+    color: #ff5400 !important;
+    font-weight: bold;
 }
 
 .filtro div{
-    color: black;
+    color: white !important;
+    font-weight: bold;
 }
 
 .filtro div div span{
-    color: black;
+    color: #ff5400;
+    font-weight: bold;
+}
+
+.customSelect {
+    background-color: #ff5400 !important;
+    color: white;
 }
