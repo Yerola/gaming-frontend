@@ -89,11 +89,27 @@ export function Sales() {
   }
 
   if (!orders) return (
-    <Segment>
-      <Dimmer active>
-        <Loader />
+    <Segment
+      style={{
+        backgroundColor: 'transparent',
+        boxShadow: '#3d3d3d',
+        border: '#3d3d3d',
+        color: '#3d3d3d',
+      }}
+    >
+      <Dimmer active
+        style={{
+          backgroundColor: 'transparent'
+        }}
+      >
+        <Loader
+          size="medium"
+          active
+          inline="centered"
+        />
       </Dimmer>
-    </Segment>);
+    </Segment>
+  );
 
   if (error) return <NoResult text="No se encontraron coincidencias" />;
 
