@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Container } from "semantic-ui-react";
 import { size } from "lodash";  
 import { BasicLayout } from "@/layouts";
+import { ChatbotGaming } from '@/components/Chatbot';
 import {
   GridGames,
   NoResult,
@@ -39,6 +40,7 @@ console.log(props);
 
           <Separator height={100} />
         </Container>
+        <ChatbotGaming />
       </BasicLayout>
     </>
   );
