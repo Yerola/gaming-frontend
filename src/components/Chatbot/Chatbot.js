@@ -72,8 +72,6 @@ const theme = {
   botFontColor: 'white',
   userBubbleColor: '#ff5400',
   userFontColor: 'white', 
-  fontFamily: 'Lato',
-  optionFontFamily: 'Lato',
 };
 
 const chatbotStyle = `
