@@ -1,10 +1,10 @@
 export const ENV = {
-  SERVER_HOST: "https://gaming-backend-forked-production.up.railway.app",
-  API_URL: "https://gaming-backend-forked-production.up.railway.app/api",
-  //SERVER_HOST: "http://127.0.0.1:1337",
-  //API_URL: "http://127.0.0.1:1337/api",
+ // SERVER_HOST: "https://gaming-backend-forked-production.up.railway.app",
+ // API_URL: "https://gaming-backend-forked-production.up.railway.app/api",
+   SERVER_HOST: "http://127.0.0.1:1337", 
+  API_URL: "http://127.0.0.1:1337/api",
   ENDPOINTS: {
-    AUTH: {   
+    AUTH: {
       REGISTER: "auth/local/register",
       LOGIN: "auth/local",
     },
@@ -17,8 +17,8 @@ export const ENV = {
     PAYMENY_ORDER: "payment-order",
     ORDER: "orders",
     UPLOAD: "upload",
-    REVIEW: "reviews",
-
+    REVIEW:"reviews",
+  
   },
   TOKEN: "token",
   CART: "cart",
