@@ -105,12 +105,12 @@ export function Sales() {
             className={styles.customSelect}
             placeholder="Filtrar por: Todo"
             options={[
-              { key: 'todo', value: 0, text: "Todo" },
-              { key: 'estaSemana', value: 1, text: "Ultimos 7 días" },
-              { key: 'esteMes', value: 2, text: "Este Mes" },
-              { key: 'mesPasado', value: 3, text: "Mes Pasado" },
-              { key: 'esteAnio', value: 4, text: "Este Año" },
-              { key: 'anioPasaado', value: 5, text: "Año Pasado" }
+              { key: 'todo', value: 0, text: "Todo", style: { backgroundColor: '#272727' } },
+              { key: 'estaSemana', value: 1, text: "Ultimos 7 días", style: { backgroundColor: '#272727' } },
+              { key: 'esteMes', value: 2, text: "Este Mes", style: { backgroundColor: '#272727' } },
+              { key: 'mesPasado', value: 3, text: "Mes Pasado", style: { backgroundColor: '#272727' } },
+              { key: 'esteAnio', value: 4, text: "Este Año", style: { backgroundColor: '#272727' } },
+              { key: 'anioPasaado', value: 5, text: "Año Pasado", style: { backgroundColor: '#272727' } }
             ]}
             onChange={(_, data) => onSearchMes(data.value)}
           />

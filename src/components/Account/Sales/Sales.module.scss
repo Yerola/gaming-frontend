@@ -28,6 +28,9 @@
 .filtro div{
     color: white !important;
     font-weight: bold;
+    &:hover {
+    background-color: #3d3d3d !important;
+            }
 }
 
 .filtro div div span{
