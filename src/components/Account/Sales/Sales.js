@@ -120,8 +120,6 @@ export function Sales() {
         </div>
       </div>
 
-
-
       <Separator height={20} />
 
       {map(orders, (order) => (
