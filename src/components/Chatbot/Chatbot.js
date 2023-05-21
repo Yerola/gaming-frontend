@@ -3,7 +3,6 @@ import  { ThemeProvider } from 'styled-components';
 import { useRouter } from "next/router"; 
 import styles from "./Chatbot.module.scss";
 
-
 export function ChatbotGaming() {
 
 const router = useRouter();
@@ -72,22 +71,32 @@ const theme = {
   headerFontColor: 'white',
   botFontColor: 'white',
   userBubbleColor: '#ff5400',
-  userFontColor: 'white',
-  fontFamily: 'arial'
+  userFontColor: 'white', 
+  fontFamily: 'Lato',
+  optionFontFamily: 'Lato',
 };
 
+const chatbotStyle = `
+    .rsc-os-option-element {
+      font-family: 'Lato';
+    }
+  `;
 
 
     return (
       <div className= {styles.custombubble}>
+        <style>{chatbotStyle}</style>
         <ThemeProvider theme={theme}>
             <ChatBot
             headerTitle="Asistente Virtual"
             steps={steps}
             floating= {true}
+            inputStyle={{ display: 'none' }}
+            hideSubmitButton = {true}
+            width= "330px"
+            height= "440px"
             />
         </ThemeProvider>
       </div>
-
     );
   };
