@@ -2,6 +2,7 @@ import { BasicLayout } from "@/layouts";
 import { Game } from "@/components/Game";
 import { Separator, Seo } from "@/components/Shared";
 import { useRouter } from "next/router";
+import { ChatbotGaming } from '@/components/Chatbot';
 
 export default function GamePage(props) {
   const { game } = props;
@@ -38,6 +39,7 @@ export default function GamePage(props) {
           <Separator height={50} />
           <Game.Reviews gameId={game.id} />
           <Separator height={50} />
+          <ChatbotGaming />
         </BasicLayout>
       </>
     );

@@ -51,8 +51,6 @@ export default function AccountPage() {
       menuItem: "Usuarios",
       render: () => (
         <Tab.Pane attached={false}>
-          <Games.AddGame onReload={onReload} />
-
           <ListUsers reload={reload} onReload={onReload} />
           <Separator height={80} />
         </Tab.Pane>
