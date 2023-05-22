@@ -3,7 +3,7 @@ import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
 import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
 import { ChatbotGaming } from '@/components/Chatbot';
-
+import styles from './home.module.scss'
 
 const platformsId = {
   playstation: 1,
@@ -14,7 +14,7 @@ const platformsId = {
 
 export default function HomePage() {
   return (
-    <>
+    <div className={styles.containerd} >
       <Seo />
 
       <BasicLayout>
@@ -64,6 +64,6 @@ export default function HomePage() {
 
         <ChatbotGaming />
       </BasicLayout>
-    </>
+    </div>
   );
 }
