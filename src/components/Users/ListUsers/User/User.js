@@ -50,8 +50,8 @@ export function User(props) {
           </Button>
 
           {blocked ? (
-            <Button primary icon onClick={openCloseConfirm}>
-              <Icon name="lock" />
+            <Button icon onClick={openCloseConfirm} className={styles.lock}>
+              <Icon name="lock" className={styles.lock} />
             </Button>
           ) : (
             <Button primary icon onClick={openCloseConfirm}>
