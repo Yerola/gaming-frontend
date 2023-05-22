@@ -8,6 +8,7 @@ import Error from "@/components/Error/Error";
 import { useState } from "react";
 import { translateError } from "@/utils/translateError";
 
+
 const authCtrl = new Auth();
 
 export function LoginForm({ session }) {
@@ -25,14 +26,18 @@ export function LoginForm({ session }) {
           name: session.user.name,
           //image: session.user.image,
           password:
-            session.user.email.split("").reverse().join("") +
-            session.user.name.split(" ").join(""),
+            session.user.email
+              .split("")
+              .reverse()
+              .join("") + session.user.name.split(" ").join(""),
         };
         const dataLogin = {
           identifier: session.user.name.split(" ").join(""),
           password:
-            session.user.email.split("").reverse().join("") +
-            session.user.name.split(" ").join(""),
+            session.user.email
+              .split("")
+              .reverse()
+              .join("") + session.user.name.split(" ").join(""),
         };
 
         try {
