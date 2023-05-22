@@ -54,9 +54,10 @@ export function Sales() {
 
     switch (data) {
       case 1:
+        f = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
         fechaAnterior.setDate(fechaAnterior.getDate() - 6)
         inicio = `${fechaAnterior.getFullYear()}-${fechaAnterior.getMonth() + 1 < 10 ? `0${fechaAnterior.getMonth() + 1}` : fechaAnterior.getMonth() + 1}-${fechaAnterior.getDate() < 10 ? `0${fechaAnterior.getDate()}` : fechaAnterior.getDate()}`
-        fin = `${hoy.getFullYear()}-${hoy.getMonth() + 1 < 10 ? `0${hoy.getMonth() + 1}` : hoy.getMonth() + 1}-${hoy.getDate() < 10 ? `0${hoy.getDate()}` : hoy.getDate()}`;
+        fin = `${f.getFullYear()}-${f.getMonth() + 1 < 10 ? `0${f.getMonth() + 1}` : f.getMonth() + 1}-${f.getDate() < 10 ? `0${f.getDate()}` : f.getDate()}`
         break;
       case 2:
         i = new Date(hoy.getFullYear(), hoy.getMonth(), 1)
@@ -71,8 +72,9 @@ export function Sales() {
         fin = `${f.getFullYear()}-${f.getMonth() + 1 < 10 ? `0${f.getMonth() + 1}` : f.getMonth() + 1}-${f.getDate() < 10 ? `0${f.getDate()}` : f.getDate()}`
         break;
       case 4:
+        f = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);      
         inicio = `${hoy.getFullYear()}-01-01`;
-        fin = `${hoy.getFullYear()}-${hoy.getMonth() + 1 < 10 ? `0${hoy.getMonth() + 1}` : hoy.getMonth() + 1}-${hoy.getDate() < 10 ? `0${hoy.getDate()}` : hoy.getDate()}`;
+        fin = `${f.getFullYear()}-${f.getMonth() + 1 < 10 ? `0${f.getMonth() + 1}` : f.getMonth() + 1}-${f.getDate() < 10 ? `0${f.getDate()}` : f.getDate()}`
         break;
       case 5:
         inicio = `${hoy.getFullYear() - 1}-01-01`;
