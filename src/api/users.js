@@ -3,7 +3,7 @@ import { ENV, authFetch } from "@/utils";
 export class Users {
   async getAllUsers() {
     try {
-      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS}`;
+      const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS}?sort=username`;
       const response = await authFetch(url);
       const result = await response.json();
       if (response.status !== 200) throw result;
