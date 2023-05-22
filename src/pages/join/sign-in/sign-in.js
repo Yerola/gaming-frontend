@@ -17,13 +17,25 @@ export default function SignInPage() {
       <JoinLayout>
         <div className={styles.signIn}>
           <h3>Iniciar sesión</h3>
+          <br />
 
           <div>
-            <Button className={styles.buttom2} onClick={() => signIn("google")} style={{display:"flex",justifyContent:"space-around",alignItems:"center"}} >
-              <FcGoogle size={25}  style={{margin:"0 5px 0 0"}} /> <spam style={{color:"#555555"}} >Iniciar sesión con Google</spam>
+            <Button
+              onClick={() => signIn("google")}
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+              }}
+            >
+              <FcGoogle size={25} style={{ margin: "0 5px 0 0" }} />{" "}
+              <spam style={{ color: "#555555" }}>
+                Iniciar sesión con Google
+              </spam>
             </Button>
           </div>
-          <br/>
+
+          <br />
 
           <LoginForm session={session} />
 

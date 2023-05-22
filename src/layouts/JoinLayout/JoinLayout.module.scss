@@ -1,3 +1,4 @@
+@use '../../scss/mixins.scss' as m;
 @import "~/src/scss/index.scss";
 
 .container {
@@ -16,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   padding: 15px;
+  z-index: 1;
 
   > a {
     > img {
@@ -29,18 +31,50 @@
     }
   }
 }
-
+//**
 .blockLeft {
-  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.blockRight {
   background-image: url("/images/sign-wallpaper.jpg");
   background-position: center;
   background-size: cover;
   height: 100%;
-  width: 50%;
+  width: 100%;
+  //nuevo
+  position: relative;
+
+  @include m.tablet {
+    background-image: none;
+    width: 50%;
+  }
+}
+
+.blockLeft::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.45);
+
+  @include m.tablet {
+    width: 0;
+  }
+}
+//**
+.blockRight {
+  @include m.tablet {
+    background-image: url("/images/sign-wallpaper.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+  }
+
+  @include m.desktopXL {
+    width: 70%;
+  }
 }
