@@ -71,3 +71,11 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .product {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+  }
+}

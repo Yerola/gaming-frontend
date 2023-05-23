@@ -49,3 +49,13 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .gridGames {
+    display: grid;
+  }
+
+  .game {
+    width: 100%;
+  }
+}
