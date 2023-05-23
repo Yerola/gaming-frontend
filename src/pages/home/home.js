@@ -3,16 +3,20 @@ import { BasicLayout } from "@/layouts";
 import { Home } from "@/components/Home";
 import { Separator, BarTrust, BannerAd, Seo } from "@/components/Shared";
 import { ChatbotGaming } from '@/components/Chatbot';
-import styles from './home.module.scss'
+import { useAuth } from "@/hooks";
+import styles from './home.module.scss';
 
 const platformsId = {
   playstation: 1,
-  xbox: 2,
-  nintendo: 3,
+  nintendo: 2,
+  xbox: 3,
   pc: 4,
 };
 
 export default function HomePage() {
+
+  const { user } = useAuth();
+
   return (
     <div className={styles.containerd} >
       <Seo />
@@ -42,13 +46,13 @@ export default function HomePage() {
 
         <Separator height={100} />
 
-        <BannerAd
+        {!user?<BannerAd
           title="Registrate y obten los mejores precios"
           subtitle="¡Compara con otros juegos y elige el tuyo!"
           btnTitle="Entrar ahora"
           btnLink="join/sign-in"
           image="/images/img01.png"
-        />
+        />:""}
 
         <Separator height={50} />
 

@@ -26,3 +26,38 @@
   display: flex;
   justify-content: flex-end;
 }
+
+@media screen and (max-width: 700px) {
+  .topBar {
+    display: grid;
+    justify-items: center;
+    padding: 0%;
+  }
+
+  .left {
+    display: flex;
+    margin: 10px;
+    width: 100%;
+    justify-items: center;
+    justify-content: center;
+
+    img {
+      height: 20px;
+    }
+  }
+
+  .center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+  }
+
+  .right {
+    width: 100%;
+    padding-right: 10px;
+    display: flex;
+    justify-content:flex-end;
+  }
+}
+

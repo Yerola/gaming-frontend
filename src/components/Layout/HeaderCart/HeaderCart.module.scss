@@ -124,3 +124,43 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .headerCart {
+    display: grid;
+    padding: 10px;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .left {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+  .right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 5px;
+  }
+
+  .center {
+    width: 100%;
+    > div {
+      .number {
+        font-size: 10px;
+        height: 16px;
+        width: 16px;
+        margin-right: 0px;
+      }
+  
+      .space {
+        width: 30px;
+        margin-left: 8px;
+        margin-right: 10px;
+      }
+    }
+  }
+}

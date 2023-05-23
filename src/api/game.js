@@ -128,10 +128,13 @@ export class Game {
     }
   }
 
-  async getAllPreview() {
+  async getAllPreview(text) {
+
+    const page = text?text:1;
+
     try {
 
-      const populate = "populate=platform&publicationState=preview&sort=title";
+      const populate = `populate=platform&publicationState=preview&sort=title&pagination[page]=${page}`;
       const url = `${ENV.API_URL}/${ENV.ENDPOINTS.GAME}?${populate}`;
 
       const response = await fetch(url);
@@ -222,7 +225,7 @@ export class Game {
   async getGamesByPlatformSlug(slug, page) {
     try {
       const filters = `filters[platform][slug][$eq]=${slug}`;
-      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=9`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
 
@@ -245,7 +248,7 @@ export class Game {
 
     try {
       const filters = `filters[title][$containsi]=${s}${p ? `&filters[platform][id][$eq]=${p}` : ""}${d ? `&filters[discount][$null]` : ""}${o ? `&sort=${o}` : ""}`;
-      const pagination = `pagination[page]=${page}&pagination[pageSize]=30`;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=9`;
       const populate = "populate=*";
       const urlParams = `${filters}&${pagination}&${populate}`;
 

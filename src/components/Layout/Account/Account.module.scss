@@ -49,3 +49,14 @@
     }
   }
 }
+
+@media screen and (max-width: 700px) {
+  .account {
+    display: grid;
+    button {
+      > i {
+        font-size: 12px;
+      }
+    }
+  }
+}
