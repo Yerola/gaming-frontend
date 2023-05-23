@@ -1,4 +1,4 @@
-import { Image } from "semantic-ui-react";
+import { Image,Icon } from "semantic-ui-react";
 import Link from "next/link";
 import { Account } from "../Account";
 import { Menu } from "../Menu";
@@ -22,6 +22,7 @@ export function TopBar(props) {
       <div className={styles.right}>
         <Account />
       </div>
+      <Icon name="bars"></Icon>
     </div>
   );
 }
