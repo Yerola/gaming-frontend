@@ -25,11 +25,12 @@ export default function SignInPage() {
               style={{
                 display: "flex",
                 justifyContent: "space-around",
-                alignItems: "center",
+                alignItems: "center",                
+                //backgroundColor:"#f0f0f0",
               }}
             >
               <FcGoogle size={25} style={{ margin: "0 5px 0 0" }} />{" "}
-              <spam style={{ color: "#555555" }}>
+              <spam style={{ color: "#f0f0f0" }}>
                 Iniciar sesión con Google
               </spam>
             </Button>
