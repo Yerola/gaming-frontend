@@ -50,8 +50,20 @@
   }
 }
 
+
 @media screen and (max-width:500px) {
   .game{
     width: 50%;
   }
 }
+/* =======
+@media screen and (max-width: 700px) {
+  .gridGames {
+    display: grid;
+  }
+
+  .game {
+    width: 100%;
+  }
+}
+>>>>>>> 0d91b06532e3eb5e2fd82ca03296887401dea578 */

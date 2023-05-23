@@ -20,6 +20,7 @@ export function User(props) {
 
   const openCloseConfirm = () => setShowConfirm((prevState) => !prevState);
   console.log(showEdit)
+  
   const updateUserState = async () => {
     try {
       setIsLoading(true);
@@ -50,8 +51,8 @@ export function User(props) {
           </Button>
 
           {blocked ? (
-            <Button icon onClick={openCloseConfirm} className={styles.lock}>
-              <Icon name="lock" className={styles.lock} />
+            <Button icon onClick={openCloseConfirm} >
+              <Icon name="lock"/>
             </Button>
           ) : (
             <Button primary icon onClick={openCloseConfirm}>
