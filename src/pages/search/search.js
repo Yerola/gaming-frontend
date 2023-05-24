@@ -9,6 +9,7 @@ import {
   Pagination,
   Separator,
 } from "@/components/Shared";
+import styles from './search.module.scss'
 
 export default function SearchPage(props) {
   const { games, pagination, searchText, searchText2 } = props;
@@ -19,7 +20,7 @@ export default function SearchPage(props) {
   }, []);
 console.log(props);
   return (
-    <>
+    <div className={styles.containerd} >
       <BasicLayout relative isOpenSearch>
         <Container>
           <Separator height={84} />
@@ -42,6 +43,6 @@ console.log(props);
         </Container>
         <ChatbotGaming />
       </BasicLayout>
-    </>
+    </div>
   );
 }

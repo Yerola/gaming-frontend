@@ -3,6 +3,7 @@ import { Game } from "@/components/Game";
 import { Separator, Seo } from "@/components/Shared";
 import { useRouter } from "next/router";
 import { ChatbotGaming } from '@/components/Chatbot';
+import styles from './game.module.scss'
 
 export default function GamePage(props) {
   const { game } = props;
@@ -15,7 +16,7 @@ export default function GamePage(props) {
     const wallpaper = game.attributes.wallpaper;
 
     return (
-      <>
+      <div className={styles.containerd}>
         <Seo
           title={game.attributes.title}
           description={game.attributes.summary}
@@ -41,7 +42,7 @@ export default function GamePage(props) {
           <Separator height={50} />
           <ChatbotGaming />
         </BasicLayout>
-      </>
+      </div>
     );
   }
 }

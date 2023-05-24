@@ -9,13 +9,14 @@ import {
   Pagination,
   Seo,
 } from "@/components/Shared";
+import styles from './platform.module.scss'
 
 export default function PlatformPage(props) {
   const { games, platform, pagination } = props;
   const hasProducts = size(games) > 0;
 
   return (
-    <>
+    <div className={styles.containerd}>
       <Seo title={`Juegos de ${platform.attributes.title}`} />
 
       <BasicLayout relative>
@@ -43,6 +44,6 @@ export default function PlatformPage(props) {
         </Container>
         <ChatbotGaming />
       </BasicLayout>
-    </>
+    </div>
   );
 }
