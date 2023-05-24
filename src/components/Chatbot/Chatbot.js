@@ -20,6 +20,7 @@ const steps = [
       { value: 2, label: 'Quiero ver juegos con descuentos', trigger: '4' },
       { value: 3, label: '¿Cómo puedo realizar una compra?', trigger: '5'},
       { value: 4, label: 'Quisiera contactarme con atención al cliente', trigger: '6' },
+      { value: 5, label: 'Quisiera eliminar mi cuenta', trigger: '10' },
     ],
   },
   {
@@ -40,6 +41,11 @@ const steps = [
   {
     id: '6',
     message: 'Para contactar con atención al cliente, por favor envía un correo electrónico a support@gaming.com o llámanos al (+34)661626007.',
+    trigger: '7'
+  },
+  {
+    id: '10',
+    message: 'Para eliminar tu cuenta, por favor envía un correo electrónico a support@gaming.com con el asunto "Cancelación de cuenta" o llámanos al (+34)661626007',
     trigger: '7'
   },
   {
