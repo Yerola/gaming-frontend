@@ -50,7 +50,14 @@
   }
 }
 
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width:500px) {
+  .game{
+    width: 50%;
+  }
+}
+
+/* @media screen and (max-width: 700px) {
   .gridGames {
     display: grid;
   }
@@ -58,4 +65,5 @@
   .game {
     width: 100%;
   }
-}
+} */
+

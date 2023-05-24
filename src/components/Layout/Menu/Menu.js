@@ -10,7 +10,7 @@ import styles from "./Menu.module.scss";
 const platformCtrl = new Platform();
 
 export function Menu(props) {
-  const { isOpenSearch } = props;
+  const { isOpenSearch,openClose } = props;
   const [platforms, setPlatforms] = useState(null);
   const [showSearch, setShowSearch] = useState(isOpenSearch);
   const [searchText, setSearchText] = useState("");
@@ -119,7 +119,7 @@ export function Menu(props) {
   }
 
   return (
-    <div className={styles.platforms}>
+    <div className={`${styles.platforms} ${openClose ? "" : styles.hideTopBar}`}>
       {map(platforms, (platform) => (
         <Link key={`P${platform.id}`} href={`/games/${platform.attributes.slug}`}>
           <Image src={platform.attributes.icon.data.attributes.url} />
@@ -128,7 +128,7 @@ export function Menu(props) {
       ))}
 
       <button className={styles.search} onClick={openCloseSearch}>
-        <Icon name="search" />
+        <Icon name="search"  className={styles.search_icon} />
       </button>
 
       <div
@@ -153,8 +153,8 @@ export function Menu(props) {
               <Select className={styles.select} placeholder="Ordenar por:" options={options2} value={sort} onChange={(_,data)=>sortFunction(data.value)}/>            
             </div>
 
-            <div>
-              <Checkbox label='Sólo juegos con descuento' checked={discount} onChange={(_,data)=>onDiscount(data.checked)}/> 
+            <div className={styles.confirm_filtrar}>
+              <Checkbox label='Sólo juegos con descuento' checked={discount} onChange={(_,data)=>onDiscount(data.checked)} className={styles.confirm_filtrar_check} /> 
               <Button className={styles.select} onClick={Filter}>Filtrar</Button>
               <Button className={styles.select} onClick={Clean}>Limpiar</Button>
             </div>

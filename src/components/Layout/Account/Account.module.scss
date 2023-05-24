@@ -52,10 +52,10 @@
 
 @media screen and (max-width: 700px) {
   .account {
-    display: grid;
+    display: flex;
     button {
       > i {
-        font-size: 12px;
+        font-size: 2rem;
       }
     }
   }

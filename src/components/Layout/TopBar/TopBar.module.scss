@@ -1,3 +1,4 @@
+@import "~/src/scss/index.scss";
 .topBar {
   position: fixed;
   display: flex;
@@ -26,38 +27,41 @@
   display: flex;
   justify-content: flex-end;
 }
+.bars{
+  display: none !important;
+}
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 500px) {
+  .bars{
+    display: block !important;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    width: 4rem !important;
+    font-size: 2.8rem !important;
+  }
+
   .topBar {
-    display: grid;
-    justify-items: center;
-    padding: 0%;
+    background-color: $background-quaternary;
+    //background-color: #3d3d3df5;
+    padding: 1rem;
+    position: relative;
   }
 
   .left {
     display: flex;
-    margin: 10px;
-    width: 100%;
+    width: 70%;
     justify-items: center;
     justify-content: center;
+    margin: 0 0px;
+    position: relative;
+    left: 3rem;
 
     img {
-      height: 20px;
+      height: 2rem;
+      overflow: hidden;
     }
   }
 
-  .center {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
-
-  .right {
-    width: 100%;
-    padding-right: 10px;
-    display: flex;
-    justify-content:flex-end;
-  }
 }
 
