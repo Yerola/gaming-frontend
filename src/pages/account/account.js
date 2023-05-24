@@ -122,7 +122,7 @@ export default function AccountPage() {
     }]
 
   return (
-    <>
+    <div className={styles.containerd}>
       <Seo title="Mi cuenta" />
 
       <BasicLayout isContainer relative className={styles.content} >
@@ -136,6 +136,6 @@ export default function AccountPage() {
 
         <ChatbotGaming />
       </BasicLayout>
-    </>
+    </div>
   );
 }
