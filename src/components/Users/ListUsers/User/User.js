@@ -2,12 +2,22 @@ import { useState } from "react";
 import { Button, Icon } from "semantic-ui-react";
 
 import { BasicModal, Confirm } from "@/components/Shared";
-import {UserForm} from '../../UserForm'
+import { UserForm } from "../../UserForm";
 import { Users } from "@/api";
 import styles from "./User.module.scss";
 
 export function User(props) {
-  const { id, username, email, firstname, lastname, blocked, createdAt, updatedAt, onReload } = props;
+  const {
+    id,
+    username,
+    email,
+    firstname,
+    lastname,
+    blocked,
+    createdAt,
+    updatedAt,
+    onReload,
+  } = props;
 
   const [showEdit, setShowEdit] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -19,8 +29,7 @@ export function User(props) {
   const openCloseEdit = () => setShowEdit((prevState) => !prevState);
 
   const openCloseConfirm = () => setShowConfirm((prevState) => !prevState);
-  console.log(showEdit)
-  
+
   const updateUserState = async () => {
     try {
       setIsLoading(true);
@@ -29,8 +38,8 @@ export function User(props) {
       openCloseConfirm();
     } catch (error) {
       console.error(error);
-    } finally{
-      setIsLoading(false)
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -51,8 +60,8 @@ export function User(props) {
           </Button>
 
           {blocked ? (
-            <Button icon onClick={openCloseConfirm} >
-              <Icon name="lock"/>
+            <Button icon onClick={openCloseConfirm}>
+              <Icon name="lock" />
             </Button>
           ) : (
             <Button primary icon onClick={openCloseConfirm}>
@@ -83,7 +92,7 @@ export function User(props) {
         onClose={openCloseEdit}
         title="Detalles del usuario"
       >
-      <UserForm  
+        <UserForm
           key={id}
           id={id}
           username={username}
@@ -95,7 +104,7 @@ export function User(props) {
           updatedAt={updatedAt}
           onReload={onReload}
           onClose={openCloseEdit}
-          />
+        />
       </BasicModal>
     </>
   );
