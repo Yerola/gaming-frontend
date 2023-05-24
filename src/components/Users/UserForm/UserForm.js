@@ -1,5 +1,4 @@
 import { Form } from "semantic-ui-react";
-import { useFormik } from "formik";
 
 export function UserForm(props) {
   const {
@@ -16,7 +15,7 @@ export function UserForm(props) {
   } = props;
 
   return (
-    <Form >
+    <Form>
       {firstname && lastname && (
         <Form.Input
           name="fullname"
@@ -31,11 +30,14 @@ export function UserForm(props) {
 
       <Form.Group widths="equal">
         <Form.Input
-          name="postal_code"
+          name="created"
           value={`Created: ${createdAt.slice(0, 10)}`}
         />
-        <Form.Input name="phone" value={`Last Update: ${updatedAt.slice(0, 10)}`} />
-        <Form.Input name="address" value={`Blocked: ${blocked}`} />
+        <Form.Input
+          name="updated"
+          value={`Last Update: ${updatedAt.slice(0, 10)}`}
+        />
+        <Form.Input name="blocked" value={`Blocked: ${blocked}`} />
       </Form.Group>
 
       <Form.Button type="submit" fluid onClick={onClose}>
