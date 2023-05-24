@@ -32,3 +32,17 @@
     }
   }
 }
+
+@media screen and (max-width:550px) {
+  .info {
+    display: flex !important;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .summary{
+    width: 100%;
+  }
+  .more{
+    width: 100%;
+  }
+}

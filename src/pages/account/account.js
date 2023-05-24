@@ -125,7 +125,7 @@ export default function AccountPage() {
     <>
       <Seo title="Mi cuenta" />
 
-      <BasicLayout isContainer relative>
+      <BasicLayout isContainer relative className={styles.content} >
         <Info />
 
         <Tab
